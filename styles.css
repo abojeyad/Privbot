@@ -429,3 +429,124 @@ body {
     }
 }
 
+
+/* تصحيح التنسيق للأجهزة الصغيرة */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* عرض الأقسام بشكل عمودي */
+    }
+
+    .left-section, .right-section {
+        width: 100%; /* عرض كامل */
+        padding: 10px; /* تقليل الحشو */
+    }
+
+    .left-section {
+        margin-bottom: 20px; /* إضافة مسافة بين الأقسام */
+    }
+
+    /* تغيير ترتيب الأقسام بحيث يظهر القسم الأيمن أولاً في شاشات الجوال */
+    .left-section {
+        order: 2; /* جعل القسم الأيسر يظهر بعد القسم الأيمن */
+    }
+
+    .right-section {
+        order: 1; /* جعل القسم الأيمن يظهر أولاً */
+    }
+
+    .header {
+        padding: 10px 5px; /* تقليل المسافة في الهيدر */
+    }
+
+    .left-header a {
+        font-size: 14px; /* تقليل حجم الخط للأيقونات */
+    }
+
+    .right-header .logo {
+        width: 25px; /* تصغير حجم اللوجو */
+        height: 25px;
+    }
+
+    .right-header .project-name {
+        font-size: 16px; /* تقليل حجم النص */
+    }
+
+    /* تعديل التنسيق للحقول داخل الفورم */
+    .form-group {
+        width: 100%;
+    }
+
+    /* تحسين تصميم الباقات */
+    .packages {
+        flex-direction: column; /* عرض الباقات بشكل عمودي */
+    }
+
+    .package {
+        width: 100%; /* عرض الباقة بالكامل */
+        margin-bottom: 10px; /* إضافة مسافة بين الباقات */
+    }
+
+    /* تعديل حجم الخط في النصوص */
+    .feature-card p {
+        font-size: 14px; /* تصغير الخط */
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr; /* عرض البطاقة الواحدة في كل صف */
+        gap: 15px;
+    }
+
+    /* تحسين عرض النصوص في المحتوى الأيمن */
+    .right-section h3 {
+        font-size: 18px; /* تصغير حجم العناوين */
+    }
+
+    /* تحسين الأزرار */
+    .option-btn, .package label {
+        font-size: 14px; /* تقليل حجم الخط */
+        padding: 8px 16px; /* تقليل الحشو */
+    }
+
+    button {
+        font-size: 14px; /* تقليل حجم النص */
+        padding: 8px 12px; /* تقليل الحشو */
+    }
+}
+
+/* تغيير التنسيق لأجهزة الجوال الصغيرة جداً */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .left-header a {
+        font-size: 12px;
+    }
+
+    .right-header .logo {
+        width: 20px;
+        height: 20px;
+    }
+
+    .project-name {
+        font-size: 14px;
+    }
+
+    /* تحسين العرض للجداول */
+    .form-group input,
+    .form-group select {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .payment-popup {
+        padding: 15px; /* تقليل الحشو */
+    }
+
+    /* تحسين حجم النصوص في بطاقة الميزات */
+    .feature-card p {
+        font-size: 13px;
+    }
+}
