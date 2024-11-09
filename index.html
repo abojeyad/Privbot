@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج تسجيل جديد</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<body>
+
+    <!-- الهيدر -->
+    <header class="header">
+        <!-- الجهة اليسرى -->
+        <div class="left-header">
+            <a href="#" class="language-switch">
+                <img src="images/language-icon.png" alt="Language" class="icon">  <!-- تغيير المسار هنا -->
+                تغيير اللغة
+            </a>
+            <a href="https://t.me/yourchannel" class="telegram-link">
+                <img src="images/telegram-icon.png" alt="Telegram" class="icon">  <!-- تغيير المسار هنا -->
+                راسلنا
+            </a>
+            <a href="mailto:example@email.com" class="email-link">
+                <img src="images/email-icon.png" alt="Email" class="icon">  <!-- تغيير المسار هنا -->
+                anas@gmail.com
+            </a>
+        </div>
+        
+        <!-- الجهة اليمنى -->
+        <div class="right-header">
+			<span class="project-name">اسم المشروع</span>
+            <img src="images/logo.png" alt="Logo" class="logo">  <!-- تغيير المسار هنا -->
+            
+        </div>
+    </header>
+	
+	
+    <div class="container">
+        <div class="left-section">
+            <div class="registration-options">
+                <button id="renewSubscriptionBtn" class="option-btn">تجديد الاشتراك</button>
+                <button id="newRegistrationBtn" class="option-btn active">تسجيل جديد</button>
+            </div>
+
+            <!-- نموذج تسجيل جديد -->
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="fullName">إسم المتجر:</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="ادخل اسم المحل او المتجر" value="أحمد محمد">
+                </div>
+                <div class="form-group">
+                    <label for="phone">رقم الجوال:</label>
+                    <input type="text" id="phone" name="phone" required placeholder="أدخل رقم الجوال" value="0504928989">
+                </div>
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني:</label>
+                    <input type="email" id="email" name="email" required placeholder="أدخل البريد الإلكتروني" value="a@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label>اختر الباقة المناسبة:</label>
+                    <div class="packages">
+                        <div class="package" id="monthlyPackage">
+                            <input type="radio" id="monthly" name="package" value="monthly" required>
+                            <label for="monthly">
+                                <div class="package-content">
+                                    <h3>الباقة الشهرية</h3>
+                                    <p class="price">9 ريال</p>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="package" id="annualPackage">
+                            <input type="radio" id="annual" name="package" value="annual" required>
+                            <label for="annual">
+                                <div class="package-content">
+                                    <h3>الباقة السنوية
+                                        <span class="discount">وفر 39 ريال</span>
+                                    </h3>
+                                    <p class="price">69 ريال</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" id="submitBtn">إتمام الاشتراك</button>
+            </form>
+
+            <!-- نموذج تجديد الاشتراك -->
+            <form id="renewForm" style="display: none;">
+                <div class="form-group">
+                    <label for="renewEmailOrPhone">البريد الإلكتروني أو رقم الجوال:</label>
+                    <input type="text" id="renewEmailOrPhone" name="renewEmailOrPhone" required placeholder="أدخل البريد الإلكتروني أو رقم الجوال">
+                </div>
+                <div class="form-group">
+                    <label>اختر الباقة المناسبة:</label>
+                    <div class="packages">
+                        <div class="package" id="monthlyPackageRenew">
+                            <input type="radio" id="monthlyRenew" name="package" value="monthly" required>
+                            <label for="monthlyRenew">
+                                <div class="package-content">
+                                    <h3>الباقة الشهرية</h3>
+                                    <p class="price">9 ريال</p>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="package" id="annualPackageRenew">
+                            <input type="radio" id="annualRenew" name="package" value="annual" required>
+                            <label for="annualRenew">
+								<div class="package-content">
+									<h3 الباقة السنوية
+										<span class="discount">وفر 39 ريال</span>
+									</h3>
+								</div>
+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" id="renewSubmitBtn">تجديد الاشتراك</button>
+            </form>
+        </div>
+
+        <div class="right-section">
+
+<div class="section">
+	<h3 id="glow">احصل على بوت تليجرام مخصص لنشاطك التجاري عبر منصة Privbot، حيث يمكن لعملائك التواصل معك مباشرة وتقديم تقييمات خاصة لمنتجاتك أو خدماتك، مما يتيح لك فرصة تحسين مستوى الخدمة بناءً على ملاحظاتهم وتجاربهم.</h3>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <p>يستطيع العملاء التواصل المباشر مع المالك عبر البوت وتقديم تقييماتهم وملاحظاتهم بشكل خاص، مما يعزز الثقة ويوفر لك ملاحظات قيّمة لتحسين الخدمة.</p>
+        </div>
+        <div class="feature-card">
+            <p>يوفر البوت خاصية التقييم التلقائي عبر نظام النجوم من 1 إلى 5، مع إمكانية كتابة ملاحظات تفصيلية حول تجربة العميل، مما يمنحك رؤية شاملة حول جودة الخدمة أو المنتج.</p>
+        </div>
+        <div class="feature-card">
+            <p>يمكنك إعداد رسائل ترحيبية تلقائية للعملاء عند دخولهم البوت لأول مرة، بالإضافة إلى رسائل شكر بعد التقييم، مع تضمين عروض أو خصومات تحفيزية لزيادة التفاعل وتشجيعهم على إعادة الشراء.</p>
+        </div>
+        <div class="feature-card">
+            <p>يتيح Privbot إمكانية تطوير البوت بوظائف إضافية مثل تخصيص الردود التلقائية على الأسئلة الشائعة، عرض منتجات جديدة، أو إضافة روابط لموقعك الإلكتروني وخدماتك الأخرى.</p>
+        </div>
+        <div class="feature-card">
+            <p>يمكن نشر التقييمات الإيجابية تلقائيًا على خرائط Google Maps لتعزيز سمعة متجرك محليًا، مما يساعد في جذب عملاء جدد وزيادة مصداقية المتجر.</p>
+        </div>
+        <div class="feature-card">
+            <p>يتمتع Privbot بمرونة وسهولة في التفعيل، مما يسمح لك بالبدء فورًا في تحسين تجربة العملاء وزيادة التفاعل مع نشاطك التجاري.</p>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

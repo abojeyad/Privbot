@@ -1,0 +1,431 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    direction: ltr; /* يحدد اتجاه النص للعربية */
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left-section, .right-section {
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+}
+
+.left-section {
+    width: 40%; /* تصغير عرض القسم الأيسر */
+}
+
+.right-section {
+    width: 60%; /* توسيع عرض القسم الأيمن */
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    direction: rtl;
+    width: 100%;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+button,
+select {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+button:focus,
+select:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+.packages {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.package {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    width: 45%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;  /* جعل العنصر يمكنه التفاعل بشكل صحيح */
+	background : #fff
+}
+
+
+
+/* إخفاء الأزرار الأصلية */
+.package input[type="radio"] {
+    display: none;
+}
+
+/* إضافة إطار خطي عند تحديد الباقة */
+.package.selected {
+    outline: 3px solid #ff6347;  /* إضافة الإطار الخارجي باللون الأزرق */
+    outline-offset: -5px; /* تحديد المسافة بين الإطار والمحتوى */
+}
+
+/* تنسيق المحتوى داخل الباقة */
+.package-content {
+    text-align: center;
+}
+
+.package-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.discount {
+    color: #ff6347;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+
+
+
+
+/* تنسيق الأزرار التي تظهر قبل الفورم */
+.registration-options {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex; /* عرض الأزرار بشكل أفقي */
+    justify-content: center; /* تركز الأزرار في المنتصف */
+    gap: 20px; /* المسافة بين الأزرار */
+}
+
+.registration-options .option-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f2f2f2;
+    color: #333;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.registration-options .option-btn:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.registration-options .option-btn.active {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+.registration-options .option-btn:focus {
+    outline: none;
+}
+
+
+/* بوب اب الدفع */
+.payment-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 8px;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment-popup h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #333;
+    text-align: center;
+}
+
+.payment-popup .form-group {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.payment-popup .form-group label {
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+}
+
+.payment-popup .form-group input[type="text"],
+.payment-popup .form-group select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.payment-popup .form-group input[type="text"]:focus,
+.payment-popup .form-group select:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.payment-popup button {
+    width: 48%;
+    padding: 12px 0;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.payment-popup button#confirmPayment {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.payment-popup button#cancelPayment {
+    background-color: #f44336;
+    color: white;
+}
+
+.payment-popup button:hover {
+    background-color: #45a049;
+}
+
+.payment-popup button#cancelPayment:hover {
+    background-color: #d32f2f;
+}
+
+/* خلفية مظلمة عند فتح البوب اب */
+.payment-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+
+/* القسم الأيمن الذي يحتوي على المحتوى النصي */
+.right-section {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: flex-start;
+    color: #333;
+    border-left: 1px solid #ccc;
+	direction : rtl;
+}
+
+.right-section .text-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.right-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.right-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+
+/* تنسيق الهيدر */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;  /* تم تقليل الـ padding هنا لتقليل ارتفاع الهيدر */
+    background-color: #4CAF50;
+    color: white;
+}
+
+.left-header, .right-header {
+    display: flex;
+    align-items: center;
+}
+
+/* تنسيق روابط الجهة اليسرى */
+.left-header a {
+    color: white;
+    font-size: 16px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+	
+}
+
+/* إضافة مسافة بين الأيقونة والنص */
+.left-header a .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;  /* إضافة مسافة على اليمين بين الأيقونة والنص */
+}
+
+.left-header .icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+/* تنسيق الجهة اليمنى (اللوغو واسم المشروع) */
+.right-header {
+    display: flex;
+    align-items: center;
+}
+
+.right-header .logo {
+    width: 30px;  /* تقليل حجم اللوجو */
+    height: 30px;
+    margin-left: 10px;
+}
+
+.right-header .project-name {
+    font-size: 18px;  /* تقليل حجم النص */
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/* تأثير عند تمرير الفأرة على الروابط */
+.left-header a:hover {
+    color: #007BFF;  /* تغيير اللون إلى الأزرق عند المرور */
+    text-decoration: none;  /* إزالة التسطير (underline) */
+}
+
+body {
+    background-image: url("images/background-image.jpg"); /* تأكد من مسار الصورة */
+    background-size: cover; /* لضبط الصورة على كامل الصفحة */
+    background-repeat: no-repeat; /* منع تكرار الصورة */
+    background-attachment: fixed; /* تثبيت الخلفية أثناء التمرير */
+}
+
+
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* توزيع الأعمدة بشكل متساوي */
+    gap: 20px; /* المسافة بين البطاقات */
+    padding: 20px;
+}
+
+.feature-card {
+    background-color: #f4f4f4; /* خلفية خفيفة للبطاقات */
+    padding: 10px;
+    border-radius: 10px; /* حواف دائرية للبطاقات */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* تأثير الظل */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثيرات التفاعل */
+}
+
+.feature-card:hover {
+    transform: translateY(-5px); /* تأثير التحريك عند المرور على البطاقات */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* زيادة الظل عند التفاعل */
+}
+
+.feature-card p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+
+
+#glow {
+    font-size: 24px;
+    font-weight: bold;
+    color: #444;
+    text-align: center;
+    animation: reversePulse 2s ease-in-out infinite;
+}
+
+@keyframes reversePulse {
+    0% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(0.93);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+
