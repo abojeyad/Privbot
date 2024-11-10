@@ -218,7 +218,7 @@ button:hover {
     margin-bottom: 8px;
     font-size: 16px;
     color: #333;
-	text-align: right;
+	
 }
 
 .payment-popup .form-group input[type="text"],
@@ -488,9 +488,9 @@ body {
         margin-left: 10px !important; /* إضافة مسافة بين اللوجو والنص */
     }
 
-    /* إخفاء البريد الإلكتروني والتلجرام في الشاشات الصغيرة */
-    .telegram-link, .email-link {
-        display: none !important; /* إخفاء العناصر */
+    /* إخفاء النصوص داخل الروابط وإبقاء الأيقونات فقط */
+    .left-header a span {
+        display: none !important; /* إخفاء النص */
     }
 
     /* تعديل التنسيق للحقول داخل الفورم */
@@ -565,9 +565,9 @@ body {
         font-size: 14px !important;
     }
 
-    /* إخفاء البريد الإلكتروني والتلجرام في الشاشات الصغيرة جداً */
-    .telegram-link, .email-link {
-        display: none !important; /* إخفاء العناصر */
+    /* إخفاء النصوص داخل الروابط وإبقاء الأيقونات فقط */
+    .left-header a span {
+        display: none !important; /* إخفاء النص */
     }
 
     /* تحسين العرض للجداول */
