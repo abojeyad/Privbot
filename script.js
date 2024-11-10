@@ -99,8 +99,20 @@ function openPaymentPopup() {
         <div class="payment-popup">
             <h2>إتمام الدفع</h2>
             <div class="form-group">
+                <label for="cardHolderName">اسم حامل البطاقة:</label>
+                <input type="text" id="cardHolderName" name="cardHolderName" placeholder="أدخل اسم حامل البطاقة">
+            </div>
+            <div class="form-group">
                 <label for="creditCard">رقم البطاقة الائتمانية:</label>
                 <input type="text" id="creditCard" name="creditCard" placeholder="أدخل رقم البطاقة الائتمانية">
+            </div>
+            <div class="form-group">
+                <label for="expiryDate">تاريخ الانتهاء:</label>
+                <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY">
+            </div>
+            <div class="form-group">
+                <label for="cvv">رمز التحقق (CVV):</label>
+                <input type="text" id="cvv" name="cvv" placeholder="أدخل رمز التحقق">
             </div>
             <div class="form-group">
                 <button id="confirmPayment">تأكيد الدفع</button>
@@ -118,7 +130,17 @@ function openPaymentPopup() {
 
     // إغلاق نافذة الدفع عند الضغط على تأكيد
     document.getElementById("confirmPayment").addEventListener("click", function() {
-        alert("تم تأكيد الدفع!");
-        document.body.removeChild(popup);
+        // تحقق من إدخال جميع الحقول
+        const cardHolderName = document.getElementById("cardHolderName").value;
+        const creditCard = document.getElementById("creditCard").value;
+        const expiryDate = document.getElementById("expiryDate").value;
+        const cvv = document.getElementById("cvv").value;
+        
+        if (cardHolderName && creditCard && expiryDate && cvv) {
+            alert("تم تأكيد الدفع!");
+            document.body.removeChild(popup);
+        } else {
+            alert("يرجى تعبئة جميع الحقول.");
+        }
     });
 }
