@@ -218,6 +218,7 @@ button:hover {
     margin-bottom: 8px;
     font-size: 16px;
     color: #333;
+	text-align: right;
 }
 
 .payment-popup .form-group input[type="text"],
