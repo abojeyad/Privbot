@@ -45,20 +45,26 @@
                 <button id="newRegistrationBtn" class="option-btn active">تسجيل جديد</button>
             </div>
 
-            <!-- نموذج تسجيل جديد -->
-            <form id="registerForm">
-                <div class="form-group">
-                    <label for="fullName">إسم المتجر:</label>
-                    <input type="text" id="fullName" name="fullName" required placeholder="ادخل اسم المحل او المتجر" >
-                </div>
-                <div class="form-group">
-                    <label for="phone">رقم الجوال:</label>
-                    <input type="text" id="phone" name="phone" required placeholder="أدخل رقم الجوال" >
-                </div>
-                <div class="form-group">
-                    <label for="email">البريد الإلكتروني:</label>
-                    <input type="email" id="email" name="email" required placeholder="أدخل البريد الإلكتروني" >
-                </div>
+ <!-- نموذج تسجيل جديد -->
+<form id="registerForm">
+    <div class="form-group">
+        <label for="fullName">إسم المتجر:</label>
+        <input type="text" id="fullName" name="fullName" required placeholder="ادخل اسم المحل او المتجر" value="متجر الديمو" >
+    </div>
+    <div class="form-group">
+        <label for="phone">رقم الجوال:</label>
+        <input type="text" id="phone" name="phone" required placeholder="أدخل رقم الجوال" value="0501234567" >
+    </div>
+    <div class="form-group">
+        <label for="email">البريد الإلكتروني:</label>
+        <input type="email" id="email" name="email" required placeholder="أدخل البريد الإلكتروني" value="a@gmail.com" >
+    </div>
+    <!-- إضافة حقل كوبون الخصم -->
+<div class="form-group coupon-container">
+    <label for="coupon">كوبون الخصم:</label>
+    <input type="text" id="coupon" name="coupon" placeholder="أدخل كوبون الخصم" value="PR10" >
+    <button type="button" id="applyCouponBtn" class="apply-coupon-btn">تطبيق الخصم</button>
+</div>
                 <div class="form-group">
                     <label>اختر الباقة المناسبة:</label>
                     <div class="packages">

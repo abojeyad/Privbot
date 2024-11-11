@@ -182,6 +182,39 @@ button:hover {
 }
 
 
+
+/* تنسيق الحاوية التي تحتوي على الحقل والزر */
+.coupon-container {
+    display: flex;
+    align-items: center;  /* محاذاة العناصر عموديًا */
+    width: 100%;
+}
+
+.coupon-container input[type="text"] {
+    width: auto;  /* تحديد عرض الحقل */
+    margin-right: 10px; /* مسافة بين الحقل والزر */
+}
+
+.coupon-container button {
+    width: auto;  /* جعل الزر يأخذ المساحة المطلوبة فقط */
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* تأثير التمرير على الزر */
+.coupon-container button:hover {
+    background-color: #45a049;
+}
+
+
+
+
 /* بوب اب الدفع */
 .payment-popup {
     position: fixed;
@@ -585,4 +618,144 @@ body {
     .feature-card p {
         font-size: 13px !important;
     }
+}
+
+
+
+
+
+/* تنسيق نافذة الشكر */
+.thank-you-page-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.thank-you-page {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.link-container {
+    background-color: #f2f2f2; /* خلفية الرابط */
+    padding: 10px;
+    margin: 15px 0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عمودياً */
+    align-items: center; /* محاذاة العناصر في المنتصف */
+}
+
+.link {
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+    margin-bottom: 5px; /* المسافة بين الرابط والأيقونة */
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* تنسيق الحاوية التي تحتوي على أيقونة النسخ والنص */
+.copy-link-container {
+    display: flex;
+    align-items: center; /* محاذاة الأيقونة والنص في نفس السطر */
+    gap: 5px; /* المسافة بين الأيقونة والنص */
+}
+
+.copy-link-icon {
+    font-size: 14px;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.copy-link-icon:hover {
+    text-decoration: underline;
+}
+
+.copy-link-container span {
+    font-size: 12px;
+    color: #666;
+    cursor: pointer;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* تنسيق صورة كود QR */
+.qr-code {
+    max-width: 150px;
+}
+
+/* تنسيق زر "تنزيل الصورة" بحجم النص */
+#downloadQRCode {
+    background-color: #FF5722;
+    padding: 5px 10px;
+    font-size: 14px;
+    height: auto;
+    width: auto;
+}
+
+#downloadQRCode:hover {
+    background-color: #E64A19;
+}
+
+/* تنسيق زر "إغلاق" */
+#closeThankYouPopup {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#closeThankYouPopup:hover {
+    background-color: #e53935;
 }

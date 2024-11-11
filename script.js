@@ -14,7 +14,6 @@ document.querySelectorAll('input[name="package"]').forEach(input => {
 
 // تعامل مع زر "تسجيل جديد" لإظهار النموذج
 document.getElementById("newRegistrationBtn").addEventListener("click", function() {
-    // أظهر النموذج لتسجيل جديد
     document.getElementById("registerForm").style.display = "block";
     document.getElementById("renewForm").style.display = "none";  // إخفاء نموذج تجديد الاشتراك
 
@@ -25,7 +24,6 @@ document.getElementById("newRegistrationBtn").addEventListener("click", function
 
 // تعامل مع زر "تجديد الاشتراك" لإظهار النموذج
 document.getElementById("renewSubscriptionBtn").addEventListener("click", function() {
-    // إظهار نموذج تجديد الاشتراك
     document.getElementById("renewForm").style.display = "block";
     document.getElementById("registerForm").style.display = "none";  // إخفاء نموذج التسجيل الجديد
 
@@ -34,7 +32,7 @@ document.getElementById("renewSubscriptionBtn").addEventListener("click", functi
     document.getElementById("newRegistrationBtn").classList.remove("active");
 });
 
-// عند إرسال نموذج "تجديد الاشتراك"، تحقق من صحة البيانات
+// عند إرسال نموذج "تجديد الاشتراك"
 document.getElementById("renewForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -42,55 +40,47 @@ document.getElementById("renewForm").addEventListener("submit", function(event) 
     const phoneRegex = /^[0-9]{10}$/;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zAZ0-9.-]+\.[a-zA-Z]{2,}$/;
     const packageSelected = document.querySelector('input[name="package"]:checked');
-    
-    // تحقق من صحة البريد الإلكتروني أو رقم الجوال
+
     if (!emailRegex.test(emailOrPhone) && !phoneRegex.test(emailOrPhone)) {
         alert("يرجى إدخال بريد إلكتروني صالح أو رقم جوال صالح.");
         return;
     }
-    
-    // تحقق من اختيار الباقة
+
     if (!packageSelected) {
         alert("يرجى اختيار الباقة المناسبة.");
         return;
     }
 
-    // فتح نافذة الدفع
     openPaymentPopup();
 });
 
-// عند إرسال نموذج "تسجيل جديد"، تحقق من صحة البيانات
+// عند إرسال نموذج "تسجيل جديد"
 document.getElementById("registerForm").addEventListener("submit", function(event) {
-    event.preventDefault();  // منع الإرسال الافتراضي للنموذج
+    event.preventDefault();
 
     const phone = document.getElementById("phone").value;
     const email = document.getElementById("email").value;
     const phoneRegex = /^[0-9]{10}$/;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const packageSelected = document.querySelector('input[name="package"]:checked');
-    
-    // تحقق من صحة رقم الجوال
+
     if (!phoneRegex.test(phone)) {
         alert("يرجى إدخال رقم جوال صالح يتكون من 10 أرقام.");
         return;
     }
-    
-    // تحقق من صحة البريد الإلكتروني
+
     if (!emailRegex.test(email)) {
         alert("يرجى إدخال بريد إلكتروني صالح.");
         return;
     }
-    
-    // تحقق من اختيار الباقة
+
     if (!packageSelected) {
         alert("يرجى اختيار الباقة المناسبة.");
         return;
     }
 
-    // إذا كانت جميع البيانات صحيحة، افتح نافذة الدفع
     openPaymentPopup();
 });
-
 // فتح نافذة الدفع بعد التحقق من البيانات
 function openPaymentPopup() {
     const popup = document.createElement("div");
@@ -100,19 +90,19 @@ function openPaymentPopup() {
             <h2>إتمام الدفع</h2>
             <div class="form-group">
                 <label for="cardHolderName">اسم حامل البطاقة:</label>
-                <input type="text" id="cardHolderName" name="cardHolderName" placeholder="أدخل اسم حامل البطاقة">
+                <input type="text" id="cardHolderName" name="cardHolderName" placeholder="أدخل اسم حامل البطاقة" value="أحمد محمد">
             </div>
             <div class="form-group">
                 <label for="creditCard">رقم البطاقة الائتمانية:</label>
-                <input type="text" id="creditCard" name="creditCard" placeholder="أدخل رقم البطاقة الائتمانية">
+                <input type="text" id="creditCard" name="creditCard" placeholder="أدخل رقم البطاقة الائتمانية" value="4111 1111 1111 1111">
             </div>
             <div class="form-group">
                 <label for="expiryDate">تاريخ الانتهاء:</label>
-                <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY">
+                <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" value="12/25">
             </div>
             <div class="form-group">
                 <label for="cvv">رمز التحقق (CVV):</label>
-                <input type="text" id="cvv" name="cvv" placeholder="أدخل رمز التحقق">
+                <input type="text" id="cvv" name="cvv" placeholder="أدخل رمز التحقق" value="123">
             </div>
             <div class="form-group">
                 <button id="confirmPayment">تأكيد الدفع</button>
@@ -135,12 +125,137 @@ function openPaymentPopup() {
         const creditCard = document.getElementById("creditCard").value;
         const expiryDate = document.getElementById("expiryDate").value;
         const cvv = document.getElementById("cvv").value;
-        
+		
         if (cardHolderName && creditCard && expiryDate && cvv) {
-            alert("تم تأكيد الدفع!");
+            // إزالة نافذة الدفع
             document.body.removeChild(popup);
+            
+            // فتح صفحة جديدة تحتوي على رسالة شكر
+            openThankYouPage();
         } else {
             alert("يرجى تعبئة جميع الحقول.");
         }
+    });
+}
+
+
+
+// فتح نافذة الدفع بعد التحقق من البيانات
+function openPaymentPopup() {
+    const popup = document.createElement("div");
+    popup.className = "payment-popup-overlay";
+    popup.innerHTML = `
+        <div class="payment-popup">
+            <h2>إتمام الدفع</h2>
+            <div class="form-group">
+                <label for="cardHolderName">اسم حامل البطاقة:</label>
+                <input type="text" id="cardHolderName" name="cardHolderName" placeholder="أدخل اسم حامل البطاقة" value="أحمد محمد">
+            </div>
+            <div class="form-group">
+                <label for="creditCard">رقم البطاقة الائتمانية:</label>
+                <input type="text" id="creditCard" name="creditCard" placeholder="أدخل رقم البطاقة الائتمانية" value="4111 1111 1111 1111">
+            </div>
+            <div class="form-group">
+                <label for="expiryDate">تاريخ الانتهاء:</label>
+                <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" value="12/25">
+            </div>
+            <div class="form-group">
+                <label for="cvv">رمز التحقق (CVV):</label>
+                <input type="text" id="cvv" name="cvv" placeholder="أدخل رمز التحقق" value="123">
+            </div>
+            <div class="form-group">
+                <button id="confirmPayment">تأكيد الدفع</button>
+                <button id="cancelPayment">إلغاء</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(popup);
+
+    // إغلاق نافذة الدفع عند الضغط على إلغاء
+    document.getElementById("cancelPayment").addEventListener("click", function() {
+        document.body.removeChild(popup);
+    });
+
+    // إغلاق نافذة الدفع عند الضغط على تأكيد
+    document.getElementById("confirmPayment").addEventListener("click", function() {
+        // تحقق من إدخال جميع الحقول
+        const cardHolderName = document.getElementById("cardHolderName").value;
+        const creditCard = document.getElementById("creditCard").value;
+        const expiryDate = document.getElementById("expiryDate").value;
+        const cvv = document.getElementById("cvv").value;
+
+        if (cardHolderName && creditCard && expiryDate && cvv) {
+            // إغلاق نافذة الدفع
+            document.body.removeChild(popup);
+
+            // فتح صفحة الشكر بعد تأكيد الدفع
+            openThankYouPopup();
+        } else {
+            alert("يرجى تعبئة جميع الحقول.");
+        }
+    });
+}
+
+
+
+
+
+// فتح صفحة الشكر بعد الدفع
+function openThankYouPopup() {
+    const thankYouPopup = document.createElement("div");
+    thankYouPopup.className = "thank-you-page-overlay";
+    thankYouPopup.innerHTML = `
+        <div class="thank-you-page">
+            <h2>شكراً لإتمام الدفع!</h2>
+            <div class="link-container">
+			     <p>تم إنشاء صفحة التقييم الخاصة بك بنجاح. شارك هذا الرابط مع زبائنك الكرام ليقوموا بتقييم محلك ومشاركة آرائهم حول آخر عملية شراء قاموا بها:</p>
+                <a href="https://demo-link.com" target="_blank" class="link" id="demoLink">https://demo-link.com</a>
+                <span class="copy-link-icon" id="copyLinkIcon"/span>
+            </div>
+            <img src="https://via.placeholder.com/150x150.png?text=QR+Code" alt="QR Code" class="qr-code" />
+            <div class="form-group">
+                <button id="downloadQRCode">تنزيل صورة QR</button>
+            </div>
+            <div class="link-container">
+			     <p> هذه الصفحة الخاصة بك للإطلاع على التقييمات وقراءة تعليقات وآراء الزبائن الذين قاموا بمشاركتها معك:</p>
+                <a href="https://mydemo-link.com" target="_blank" class="link" id="demoLink2">https://demo-link.com</a>
+                <span class="copy-link-icon" id="copyLinkIcon2"/span>
+            </div>
+            <div class="form-group">
+                <button id="closeThankYouPopup">إغلاق</button> <!-- زر إغلاق -->
+            </div>
+        </div>
+    `;
+    document.body.appendChild(thankYouPopup);
+
+    // إغلاق نافذة الشكر عند الضغط على "إغلاق"
+    document.getElementById("closeThankYouPopup").addEventListener("click", function() {
+        document.body.removeChild(thankYouPopup);
+    });
+
+    // نسخ الرابط الأول عند النقر على أيقونة "نسخ الرابط"
+    document.getElementById("copyLinkIcon").addEventListener("click", function() {
+        const link = "https://demo-link.com"; // رابط ديمو
+        navigator.clipboard.writeText(link).then(() => {
+            alert("تم نسخ الرابط!");
+        });
+    });
+
+    // نسخ الرابط الثاني عند النقر على أيقونة "نسخ الرابط"
+    document.getElementById("copyLinkIcon2").addEventListener("click", function() {
+        const link = "https://demo-link.com"; // رابط ديمو
+        navigator.clipboard.writeText(link).then(() => {
+            alert("تم نسخ الرابط!");
+        });
+    });
+
+    // تنزيل صورة كود QR عند النقر على "تنزيل الصورة"
+    document.getElementById("downloadQRCode").addEventListener("click", function() {
+        const qrImage = document.querySelector(".qr-code");
+        const link = document.createElement("a");
+        link.href = qrImage.src;
+        link.download = "qr_code.png";
+        link.click();
     });
 }
