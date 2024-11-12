@@ -66,20 +66,6 @@ button:hover {
     background-color: #45a049;
 }
 
-.code-group {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-}
-
-.code-group input[type="text"] {
-    width: 20%;
-    padding: 10px;
-    font-size: 20px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 .verification-group {
     display: flex;
     justify-content: space-between;
@@ -110,18 +96,229 @@ button:hover {
     background-color: #45a049;
 }
 
-#backBtn {
+/* تنسيق الهيدر */
+.header {
+    display: flex;
+    top: 0;
+    z-index: 1000;
+    position: fixed;
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #f44336; /* لون جديد (أحمر) */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px; /* إضافة مسافة صغيرة فوق الزر */
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
 }
 
-#backBtn:hover {
-    background-color: #e53935; /* ظل أغمق عند التمرير */
+.left-header, .right-header {
+    display: flex;
+    align-items: center;
 }
+
+/* تنسيق روابط الجهة اليسرى */
+.left-header a {
+    color: white;
+    font-size: 16px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.left-header a .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.left-header .icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+/* تنسيق الجهة اليمنى (اللوغو واسم المشروع) */
+.right-header {
+    display: flex;
+    align-items: center;
+}
+
+.right-header .logo {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.right-header .project-name {
+    font-size: 18px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/* تأثير عند تمرير الفأرة على الروابط */
+.left-header a:hover {
+    color: #007BFF;
+    text-decoration: none;
+}
+/* إزالة الخط من الرابط */
+.home-link {
+    text-decoration: none;
+    color: inherit; /* يضمن أن يأخذ نفس لون النص الحالي */
+    display: flex;
+    align-items: center;
+}
+
+
+/* تصحيح التنسيق للأجهزة الصغيرة */
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column !important; /* عرض الأقسام بشكل عمودي */
+    }
+
+    .left-section, .right-section {
+        width: 100% !important; /* عرض كامل */
+        padding: 10px !important; /* تقليل الحشو */
+    }
+
+    .left-section {
+        margin-bottom: 20px !important; /* إضافة مسافة بين الأقسام */
+    }
+
+    /* تغيير ترتيب الأقسام بحيث يظهر القسم الأيمن أولاً في شاشات الجوال */
+    .left-section {
+        order: 2 !important; /* جعل القسم الأيسر يظهر بعد القسم الأيمن */
+    }
+
+    .right-section {
+        order: 1 !important; /* جعل القسم الأيمن يظهر أولاً */
+    }
+
+    .header {
+        display: flex !important;
+        flex-direction: row !important; /* جعل العناصر في صف */
+        justify-content: space-between !important; /* توزيع العناصر بشكل متوازن */
+        align-items: center !important; /* محاذاة العناصر عموديًا في المنتصف */
+        padding: 10px 5px !important; /* تقليل المسافة في الهيدر */
+    }
+
+    .left-header {
+        display: flex !important; /* استخدام Flexbox للعناصر في الجهة اليسرى */
+        align-items: center !important; /* محاذاة العناصر عموديًا في المنتصف */
+        justify-content: flex-start !important; /* محاذاة العناصر إلى اليسار */
+    }
+
+    .left-header a {
+        font-size: 14px !important; /* تقليل حجم الخط للأيقونات */
+        margin-left: 10px !important; /* إضافة مسافة بين العناصر */
+    }
+
+    .right-header .logo {
+        width: 25px !important; /* تصغير حجم اللوجو */
+        height: 25px !important;
+    }
+
+    .right-header .project-name {
+        font-size: 16px !important; /* تقليل حجم النص */
+        margin-left: 10px !important; /* إضافة مسافة بين اللوجو والنص */
+    }
+
+    /* إخفاء النصوص داخل الروابط وإبقاء الأيقونات فقط */
+    .left-header a span {
+        display: none !important; /* إخفاء النص */
+    }
+
+    /* تعديل التنسيق للحقول داخل الفورم */
+    .form-group {
+        width: 100% !important;
+    }
+
+    /* تحسين تصميم الباقات */
+    .packages {
+        flex-direction: column !important; /* عرض الباقات بشكل عمودي */
+    }
+
+    .package {
+        width: 100% !important; /* عرض الباقة بالكامل */
+        margin-bottom: 10px !important; /* إضافة مسافة بين الباقات */
+    }
+
+    /* تعديل حجم الخط في النصوص */
+    .feature-card p {
+        font-size: 14px !important; /* تصغير الخط */
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr !important; /* عرض البطاقة الواحدة في كل صف */
+        gap: 15px !important;
+    }
+
+    /* تحسين عرض النصوص في المحتوى الأيمن */
+    .right-section h3 {
+        font-size: 18px !important; /* تصغير حجم العناوين */
+    }
+
+    /* تحسين الأزرار */
+    .option-btn, .package label {
+        font-size: 14px !important; /* تقليل حجم الخط */
+        padding: 8px 16px !important; /* تقليل الحشو */
+    }
+
+    button {
+        font-size: 14px !important; /* تقليل حجم النص */
+        padding: 8px 12px !important; /* تقليل الحشو */
+    }
+}
+
+/* تغيير التنسيق لأجهزة الجوال الصغيرة جداً */
+@media (max-width: 480px) {
+    .header {
+        display: flex !important;
+        flex-direction: row !important; /* عرض العناصر في صف واحد */
+        justify-content: flex-start !important; /* محاذاة العناصر إلى اليسار */
+        padding: 10px !important;
+    }
+
+    .left-header {
+        flex-direction: row !important; /* وضع العناصر في صف */
+        width: 100% !important;
+        justify-content: flex-start !important; /* محاذاة العناصر إلى اليسار */
+        margin-bottom: 0 !important; /* إزالة المسافة السفلية */
+    }
+
+    .left-header a {
+        font-size: 12px !important;
+        margin-left: 5px !important; /* تقليل المسافة بين الأيقونات */
+    }
+
+    .right-header .logo {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .project-name {
+        font-size: 14px !important;
+    }
+
+    /* إخفاء النصوص داخل الروابط وإبقاء الأيقونات فقط */
+    .left-header a span {
+        display: none !important; /* إخفاء النص */
+    }
+
+    /* تحسين العرض للجداول */
+    .form-group input,
+    .form-group select {
+        padding: 8px !important;
+        font-size: 14px !important;
+    }
+
+    .payment-popup {
+        padding: 15px !important; /* تقليل الحشو */
+    }
+
+    /* تحسين حجم النصوص في بطاقة الميزات */
+    .feature-card p {
+        font-size: 13px !important;
+    }
+}
+
