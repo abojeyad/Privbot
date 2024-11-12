@@ -6,6 +6,8 @@
 
 body, html {
     height: 100%;
+	margin-top: 15px;
+	margin-bottom: 60px;
     font-family: Arial, sans-serif;
     direction: ltr; /* يحدد اتجاه النص للعربية */
 }
@@ -19,6 +21,7 @@ body, html {
     width: 50%;
     height: 100%;
     padding: 20px;
+	margin-bottom: 20px;
 }
 
 .left-section {
@@ -31,6 +34,11 @@ body, html {
 
 h1, h2 {
     color: #333;
+    text-align: center;
+}
+
+p {
+    direction: rtl;
     text-align: center;
 }
 
@@ -218,17 +226,17 @@ button:hover {
 /* بوب اب الدفع */
 .payment-popup {
     position: fixed;
-    top: 50%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-    padding: 25px;
+    padding: 5px 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    width: 100%;
+    width: 80%;
     max-width: 450px;
     border-radius: 8px;
-    text-align: left;
+    text-align: right;
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
@@ -244,11 +252,9 @@ button:hover {
 
 .payment-popup .form-group {
     width: 100%;
-    margin-bottom: 20px;
 }
 
 .payment-popup .form-group label {
-    margin-bottom: 8px;
     font-size: 16px;
     color: #333;
 	
@@ -347,6 +353,10 @@ button:hover {
 /* تنسيق الهيدر */
 .header {
     display: flex;
+	top: 0;
+	z-index: 1000;
+	position: fixed;
+	width: 100%;
     justify-content: space-between;
     align-items: center;
     padding: 5px 10px;  /* تم تقليل الـ padding هنا لتقليل ارتفاع الهيدر */
@@ -725,13 +735,8 @@ button:hover {
     background-color: #45a049;
 }
 
-/* تنسيق صورة كود QR */
-.qr-code {
-    max-width: 150px;
-}
-
-/* تنسيق زر "تنزيل الصورة" بحجم النص */
-#downloadQRCode {
+/* تنسيق زر "تنسخ الرابط" بحجم النص */
+#copyLinkButton {
     background-color: #FF5722;
     padding: 5px 10px;
     font-size: 14px;
@@ -739,9 +744,15 @@ button:hover {
     width: auto;
 }
 
-#downloadQRCode:hover {
-    background-color: #E64A19;
+/* تنسيق زر "تنزيل الصورة" بحجم النص */
+#downloadQRCode {
+    background-color: #ffgg11;
+    padding: 5px 10px;
+    font-size: 14px;
+    height: auto;
+    width: auto;
 }
+
 
 /* تنسيق زر "إغلاق" */
 #closeThankYouPopup {

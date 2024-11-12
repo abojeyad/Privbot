@@ -207,19 +207,22 @@ function openThankYouPopup() {
     thankYouPopup.className = "thank-you-page-overlay";
     thankYouPopup.innerHTML = `
         <div class="thank-you-page">
-            <h2>شكراً لإتمام الدفع!</h2>
+            <h2>شكرا لإشتراكك معنا</h2>
             <div class="link-container">
-			     <p>تم إنشاء صفحة التقييم الخاصة بك بنجاح. شارك هذا الرابط مع زبائنك الكرام ليقوموا بتقييم محلك ومشاركة آرائهم حول آخر عملية شراء قاموا بها:</p>
-                <a href="https://demo-link.com" target="_blank" class="link" id="demoLink">https://demo-link.com</a>
+				<p>
+					تم إنشاء صفحة التقييم الخاصة بك بنجاح!<br>
+					يمكنك الآن مشاركة هذا الرابط مع عملائك الكرام لتمكينهم من تقييم خدماتك ومشاركة آرائهم حول تجربتهم في محلك.<br>
+					رباط صفحة التقييم الخاصة بك<br>
+					<a href="mylink.html" target="_blank">mylink.com</a>
+				</p>
                 <span class="copy-link-icon" id="copyLinkIcon"/span>
             </div>
-            <img src="https://via.placeholder.com/150x150.png?text=QR+Code" alt="QR Code" class="qr-code" />
             <div class="form-group">
+				<button id="copyLinkButton">نسخ الرابط</button> <!-- زر نسخ الرابط -->
                 <button id="downloadQRCode">تنزيل صورة QR</button>
             </div>
             <div class="link-container">
-			     <p> هذه الصفحة الخاصة بك للإطلاع على التقييمات وقراءة تعليقات وآراء الزبائن الذين قاموا بمشاركتها معك:</p>
-                <a href="https://mydemo-link.com" target="_blank" class="link" id="demoLink2">https://demo-link.com</a>
+			     <p>يمكنك متابعة جميع التقييمات وقراءة ملاحظات وآراء عملائك من خلال الدخول إلى البوت التالي: mystore.bot@ على تليجرام أو واتساب</p>
                 <span class="copy-link-icon" id="copyLinkIcon2"/span>
             </div>
             <div class="form-group">
