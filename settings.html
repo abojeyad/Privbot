@@ -8,13 +8,43 @@
 </head>
 <body>
 
+     <!-- الهيدر -->
+    <header class="header">
+        <!-- الجهة اليسرى -->
+        <div class="left-header">
+            <a href="#" class="language-switch">
+                <img src="images/language-icon.png" alt="Language" class="icon"> 
+                <span>تغيير اللغة</span>
+            </a>
+            <a href="https://t.me/yourchannel" class="telegram-link">
+                <img src="images/telegram-icon.png" alt="Telegram" class="icon"> 
+                <span>تواصل معنا</span>
+            </a>
+            <a href="mailto:example@email.com" class="email-link">
+                <img src="images/email-icon.png" alt="Email" class="icon"> 
+                <span>anas@gmail.com</span>
+            <a href="index.html" class="index-link">
+                <img src="images/home.png" alt="home" class="icon"> 
+                <span>الرئيسية</span>
+            </a>
+        </div>
+        
+        <!-- الجهة اليمنى -->
+		<div class="right-header">
+			<a href="index.html" class="home-link">
+				<span class="project-name">Privbot</span>
+				<img src="images/logo.png" alt="Logo" class="logo">
+			</a>
+		</div>
+    </header>
+    
     <div class="container">
         <h2 id="mainTitle">من هنا يمكن إدارة الصفحة الخاصة بك والإطلاع على الإحصائيات والتقييمات</h2>
         <h2 id="verificationTitle" style="display: none;">أدخل رمز التحقق</h2>
         
         <form id="settingsForm" onsubmit="showVerificationFields(event)">
             <div class="form-group">
-                <label for="userIdentifier">أدخل البريد الإلكتروني أو رقم الجوال:</label>
+                <label for="userIdentifier">للدخول أدخل البريد الإلكتروني أو رقم الجوال:</label>
                 <input type="text" id="userIdentifier" name="userIdentifier" placeholder="example@email.com أو 0501234567" value="example@email.com">
             </div>
             
@@ -29,30 +59,28 @@
                 <input type="text" maxlength="1" class="verification-input">
             </div>
             
-            <button type="button" id="loginBtn" onclick="openStatsPage()">دخول</button>
-            <button type="button" id="backBtn" onclick="goBack()">العودة للخلف</button>
+            <button type="button" id="loginBtn" onclick="showStatsText()">دخول</button>
         </form>
+        
+        <div id="statsText" style="display: none; text-align: center; margin-top: 50px; font-size: 20px;">
+            في هذه الصفحة يتم إنشاء إعدادت رسالة الترحيب التي تظهر في صفحة التقدييم وأيضا رسالة الشكر بعد التقييم بالإضافة الى ظهور العديد من الإحصائيات التي تخص التقييمات 
+        </div>
     </div>
 
     <script>
         function showVerificationFields(event) {
             event.preventDefault();
             
-            // إخفاء الحقول والعنوان القديم وإظهار العنوان والحقول الجديدة
             document.getElementById('settingsForm').style.display = 'none';
             document.getElementById('mainTitle').style.display = 'none';
             document.getElementById('verificationTitle').style.display = 'block';
             document.getElementById('verificationForm').style.display = 'block';
         }
 
-        // وظيفة لإظهار صفحة جديدة تحتوي على النص "هنا نوفر لك الاحصائيات"
-        function openStatsPage() {
-            window.location.href = "stats.html"; // إفتح صفحة جديدة بإسم "stats.html"
-        }
-
-        // وظيفة للرجوع إلى الصفحة السابقة
-        function goBack() {
-            window.history.back(); // العودة إلى الصفحة السابقة
+        function showStatsText() {
+            document.getElementById('verificationForm').style.display = 'none';
+            document.getElementById('verificationTitle').style.display = 'none';
+            document.getElementById('statsText').style.display = 'block';
         }
     </script>
 </body>
