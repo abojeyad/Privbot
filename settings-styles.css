@@ -14,99 +14,18 @@ body {
     background-color: #f4f4f9;
 }
 
-.container {
-    width: 90%;
-    max-width: 400px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-	top:50px;
-}
 
-h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.form-group {
-    margin-bottom: 15px;
-    text-align: right;
-}
-
-label {
-    display: block;
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 5px;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-.verification-group {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-}
-
-.verification-input {
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    font-size: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#loginBtn {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#loginBtn:hover {
-    background-color: #45a049;
-}
 
 /* تنسيق الهيدر */
 .header {
     display: flex;
-    top: 0;
-    z-index: 1000;
-    position: fixed;
-    width: 100%;
+	top: 0;
+	z-index: 1000;
+	position: fixed;
+	width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 10px;
+    padding: 5px 10px;  /* تم تقليل الـ padding هنا لتقليل ارتفاع الهيدر */
     background-color: #4CAF50;
     color: white;
 }
@@ -124,12 +43,14 @@ button:hover {
     display: flex;
     align-items: center;
     text-decoration: none;
+	
 }
 
+/* إضافة مسافة بين الأيقونة والنص */
 .left-header a .icon {
     width: 20px;
     height: 20px;
-    margin-right: 10px;
+    margin-right: 10px;  /* إضافة مسافة على اليمين بين الأيقونة والنص */
 }
 
 .left-header .icon {
@@ -144,23 +65,6 @@ button:hover {
     align-items: center;
 }
 
-.right-header .logo {
-    width: 30px;
-    height: 30px;
-    margin-left: 10px;
-}
-
-.right-header .project-name {
-    font-size: 18px;
-    margin-left: 10px;
-    font-weight: bold;
-}
-
-/* تأثير عند تمرير الفأرة على الروابط */
-.left-header a:hover {
-    color: #007BFF;
-    text-decoration: none;
-}
 /* إزالة الخط من الرابط */
 .home-link {
     text-decoration: none;
@@ -170,168 +74,28 @@ button:hover {
 }
 
 
-/* تصحيح التنسيق للأجهزة الصغيرة */
-@media (max-width: 768px) {
-    .container {
-        display: flex;
-        flex-direction: column !important; /* عرض الأقسام بشكل عمودي */
-    }
-
-    .left-section, .right-section {
-        width: 100% !important; /* عرض كامل */
-        padding: 10px !important; /* تقليل الحشو */
-    }
-
-    .left-section {
-        margin-bottom: 20px !important; /* إضافة مسافة بين الأقسام */
-    }
-
-    /* تغيير ترتيب الأقسام بحيث يظهر القسم الأيمن أولاً في شاشات الجوال */
-    .left-section {
-        order: 2 !important; /* جعل القسم الأيسر يظهر بعد القسم الأيمن */
-    }
-
-    .right-section {
-        order: 1 !important; /* جعل القسم الأيمن يظهر أولاً */
-    }
-
-    .header {
-        display: flex !important;
-        flex-direction: row !important; /* جعل العناصر في صف */
-        justify-content: space-between !important; /* توزيع العناصر بشكل متوازن */
-        align-items: center !important; /* محاذاة العناصر عموديًا في المنتصف */
-        padding: 10px 5px !important; /* تقليل المسافة في الهيدر */
-    }
-
-    .left-header {
-        display: flex !important; /* استخدام Flexbox للعناصر في الجهة اليسرى */
-        align-items: center !important; /* محاذاة العناصر عموديًا في المنتصف */
-        justify-content: flex-start !important; /* محاذاة العناصر إلى اليسار */
-    }
-
-    .left-header a {
-        font-size: 14px !important; /* تقليل حجم الخط للأيقونات */
-        margin-left: 10px !important; /* إضافة مسافة بين العناصر */
-    }
-
-    .right-header .logo {
-        width: 25px !important; /* تصغير حجم اللوجو */
-        height: 25px !important;
-    }
-
-    .right-header .project-name {
-        font-size: 16px !important; /* تقليل حجم النص */
-        margin-left: 10px !important; /* إضافة مسافة بين اللوجو والنص */
-    }
-
-    /* إخفاء النصوص داخل الروابط وإبقاء الأيقونات فقط */
-    .left-header a span {
-        display: none !important; /* إخفاء النص */
-    }
-
-    /* تعديل التنسيق للحقول داخل الفورم */
-    .form-group {
-        width: 100% !important;
-    }
-
-    /* تحسين تصميم الباقات */
-    .packages {
-        flex-direction: column !important; /* عرض الباقات بشكل عمودي */
-    }
-
-    .package {
-        width: 100% !important; /* عرض الباقة بالكامل */
-        margin-bottom: 10px !important; /* إضافة مسافة بين الباقات */
-    }
-
-    /* تعديل حجم الخط في النصوص */
-    .feature-card p {
-        font-size: 14px !important; /* تصغير الخط */
-    }
-
-    .feature-grid {
-        grid-template-columns: 1fr !important; /* عرض البطاقة الواحدة في كل صف */
-        gap: 15px !important;
-    }
-
-    /* تحسين عرض النصوص في المحتوى الأيمن */
-    .right-section h3 {
-        font-size: 18px !important; /* تصغير حجم العناوين */
-    }
-
-    /* تحسين الأزرار */
-    .option-btn, .package label {
-        font-size: 14px !important; /* تقليل حجم الخط */
-        padding: 8px 16px !important; /* تقليل الحشو */
-    }
-
-    button {
-        font-size: 14px !important; /* تقليل حجم النص */
-        padding: 8px 12px !important; /* تقليل الحشو */
-    }
+.right-header .logo {
+    width: 30px;  /* تقليل حجم اللوجو */
+    height: 30px;
+    margin-left: 10px;
 }
 
-/* تغيير التنسيق لأجهزة الجوال الصغيرة جداً */
-@media (max-width: 480px) {
-    .header {
-        display: flex !important;
-        flex-direction: row !important; /* عرض العناصر في صف واحد */
-        justify-content: flex-start !important; /* محاذاة العناصر إلى اليسار */
-        padding: 10px !important;
-    }
-
-    .left-header {
-        flex-direction: row !important; /* وضع العناصر في صف */
-        width: 100% !important;
-        justify-content: flex-start !important; /* محاذاة العناصر إلى اليسار */
-        margin-bottom: 0 !important; /* إزالة المسافة السفلية */
-    }
-
-    .left-header a {
-        font-size: 12px !important;
-        margin-left: 5px !important; /* تقليل المسافة بين الأيقونات */
-    }
-
-    .right-header .logo {
-        width: 20px !important;
-        height: 20px !important;
-    }
-
-    .project-name {
-        font-size: 14px !important;
-    }
-
-    /* إخفاء النصوص داخل الروابط وإبقاء الأيقونات فقط */
-    .left-header a span {
-        display: none !important; /* إخفاء النص */
-    }
-
-    /* تحسين العرض للجداول */
-    .form-group input,
-    .form-group select {
-        padding: 8px !important;
-        font-size: 14px !important;
-    }
-
-    .payment-popup {
-        padding: 15px !important; /* تقليل الحشو */
-    }
-
-    /* تحسين حجم النصوص في بطاقة الميزات */
-    .feature-card p {
-        font-size: 13px !important;
-    }
+.right-header .project-name {
+    font-size: 18px;  /* تقليل حجم النص */
+    margin-left: 10px;
+    font-weight: bold;
 }
 
-.tabs {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
+/* تأثير عند تمرير الفأرة على الروابط */
+.left-header a:hover {
+    color: #007BFF;  /* تغيير اللون إلى الأزرق عند المرور */
+    text-decoration: none;  /* إزالة التسطير (underline) */
 }
 
 
 
-/* تعديل التابات لتظهر كقائمة على يمين الصفحة */
+
+/* التابات */
 .tabs {
     display: flex;
     flex-direction: column; /* عرض التابات كقائمة عمودية */
@@ -340,7 +104,7 @@ button:hover {
     border-left: 2px solid #4CAF50;
     padding: 10px;
     position: fixed;
-    top: 50px; /* توضع تحت الهيدر */
+    top: 80px; /* توضع تحت الهيدر */
     right: 0; /* تثبيت القائمة على اليمين */
     width: auto;
 }
@@ -367,54 +131,80 @@ button:hover {
     color: #333;
 }
 
-
-
-/* تنسيق المراجعات */
-.reviews {
-    width: 100%;
-    margin-top: 900px; /* زيادة المسافة قليلاً لضمان عدم اختفاء المراجعات تحت الهيدر */
+/* محتوى التاب */
+.tab-content {
+    margin-left: 250px; /* لإعطاء مساحة على اليسار بسبب التابات */
+    padding: 20px;
+    background-color: #fff;
 }
 
+
+
+/* تنسيق الحاوية الرئيسية للمراجعات */
+.reviews {
+    display: flex;
+    flex-direction: column; /* ترتيب المراجعات من الأعلى للأسفل */
+    gap: 30px; /* المسافة بين المراجعات */
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f8f8f8; /* خلفية فاتحة للصفحة */
+    height: 100vh; /* اجعل الحاوية تأخذ كامل ارتفاع الصفحة */
+    overflow-y: auto; /* تمكين التمرير العمودي */
+}
+
+/* تنسيق كل تعليق داخل بلوك أبيض */
 .review {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
+    padding: 20px;
+    background-color: #ffffff; /* الخلفية البيضاء للتعليق */
+    border-radius: 8px; /* حدود مدورة للتعليق */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* ظل خفيف للفصل بين المراجعات */
+    margin-bottom: 20px; /* المسافة بين التعليقات */
+    border: 1px solid #e0e0e0; /* حدود رقيقة حول كل تعليق لتمييزه */
+}
+
+/* فاصل بين المراجعات */
+.review + .review {
+    border-top: 2px solid #e0e0e0; /* فاصل خطي بين كل تعليق وآخر */
+}
+
+/* تنسيق رأس التعليق */
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 15px;
 }
 
-.review-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
 .review-name {
+    font-weight: bold;
+    font-size: 18px;
     color: #333;
 }
 
 .review-stars {
-    color: #FFD700; /* لون النجوم */
-    margin: 0 10px;
+    font-size: 16px;
+    color: #ff9800;
 }
 
 .review-date {
+    font-size: 14px;
     color: #888;
-    font-size: 12px;
 }
 
+/* تنسيق وصف التعليق */
 .review-description {
+    font-size: 15px;
     color: #555;
-    margin: 10px 0;
-    white-space: pre-wrap; /* تكسير النص الطويل */
-    word-wrap: break-word;
-    word-break: break-word;
+    margin-bottom: 15px;
+    line-height: 1.6;
 }
 
+/* تنسيق الرابط لعرض الوسائط */
 .review-media a {
-    color: #007BFF;
+    color: #4CAF50;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .review-media a:hover {
@@ -423,29 +213,185 @@ button:hover {
 
 
 
-/* قسم الإحصائيات */
-.statistics-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
-.filter {
+/* تنسيق الحقول داخل شاشة التحقق */
+#email-phone-container, #verification-code-container {
     margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
-.filter select {
-    padding: 5px;
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
     font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
 }
 
-.ratings-summary {
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* تنسيق شاشة التحقق */
+.verification-screen {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
 }
 
+.verification-screen h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 18px;
+    line-height: 1.4;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+#email-phone-container, #verification-code-container {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+/* استعلام الوسائط للهواتف والشاشات الصغيرة */
+@media screen and (max-width: 768px) {
+    /* تعديل الهيدر */
+    .header {
+        flex-direction: column; /* وضع العناصر في عمود */
+        padding: 10px;
+    }
+
+    .left-header a, .right-header a {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+
+    /* تعديل التابات */
+    .tabs {
+        position: static;
+        width: 100%; /* جعل التابات تمتد عبر العرض الكامل */
+        border-left: none; /* إزالة الحد الجانبي */
+        padding: 10px 0;
+        flex-direction: row; /* جعل التابات في صف أفقي */
+        justify-content: space-evenly;
+    }
+
+    .tab {
+        width: auto; /* عرض التاب حسب محتواه */
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+
+    /* تعديل محتوى التاب */
+    .tab-content {
+        margin-left: 0;
+        padding: 15px;
+        width: 100%;
+    }
+
+    /* تعديل شاشة التحقق */
+    .verification-screen h2 {
+        font-size: 16px;
+        max-width: 100%;
+    }
+
+    /* تعديل الحقول */
+    input[type="text"], button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    /* تعديل الهيدر الأيسر */
+    .left-header a {
+        font-size: 14px; /* تصغير الخط في الهيدر */
+    }
+}
+
+/* استعلام الوسائط للأجهزة الصغيرة جدًا (شاشات أصغر من 480px) */
+@media screen and (max-width: 480px) {
+    .header {
+        padding: 8px;
+    }
+
+    .left-header a {
+        font-size: 12px;
+    }
+
+    .right-header .logo {
+        width: 25px;  /* تصغير حجم الشعار */
+        height: 25px;
+    }
+
+    .right-header .project-name {
+        font-size: 14px; /* تقليل حجم النص في اسم المشروع */
+    }
+
+    .tabs {
+        flex-direction: column; /* وضع التابات في عمود */
+        align-items: center;
+    }
+
+    .tab {
+        padding: 10px 20px;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .tab-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .verification-screen h2 {
+        font-size: 14px;
+        padding: 0 15px;
+    }
+}

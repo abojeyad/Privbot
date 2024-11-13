@@ -10,7 +10,6 @@
 
     <!-- الهيدر -->
     <header class="header">
-        <!-- الجهة اليسرى -->
         <div class="left-header">
             <a href="#" class="language-switch">
                 <img src="images/language-icon.png" alt="Language" class="icon"> 
@@ -23,13 +22,13 @@
             <a href="mailto:example@email.com" class="email-link">
                 <img src="images/email-icon.png" alt="Email" class="icon"> 
                 <span>anas@gmail.com</span>
+            </a>
             <a href="index.html" class="index-link">
                 <img src="images/home.png" alt="home" class="icon"> 
                 <span>العودة للرئيسية</span>
             </a>
         </div>
         
-        <!-- الجهة اليمنى -->
         <div class="right-header">
             <a href="index.html" class="home-link">
                 <span class="project-name">Privbot</span>
@@ -38,85 +37,39 @@
         </div>
     </header>
 
-    <!-- التابات -->
-    <div class="tabs">
-        <button onclick="showTab('reviews')" class="tab active">المراجعات</button>
-        <button onclick="showTab('stats')" class="tab">الإحصائيات</button>
+    <!-- شاشة التحقق -->
+    <div class="verification-screen" id="verification-screen">
+        <h2>لتتمكن من الدخول الى صفحة إعدادت لموقع الخاص بك والإطلاع على التقييمات والإحصائيات فضلا قم فإدخال البريد الإلكتروني أو رقم الجوال المرتبط بحسابك</h2>
+
+        <!-- إدخال البريد الإلكتروني أو رقم الجوال -->
+        <div id="email-phone-container">
+            <label for="email-phone">البريد الإلكتروني أو رقم الجوال:</label>
+            <input type="text" id="email-phone" name="email-phone" required placeholder="أدخل بريدك الإلكتروني أو رقم الجوال" value="a@gmail.com">
+            <br>
+            <button id="send-code-btn" onclick="sendVerificationCode()">إرسال رمز التحقق</button>
+        </div>
+
+        <!-- إدخال رمز التحقق -->
+        <div id="verification-code-container" style="display: none;">
+            <h2>ادخل رمز التحقق المرسل الى البريد الإلكتروني او رقم الهاتف المرتبط بحسابك</h2>
+            <label for="verification-code">رمز التحقق:</label>
+            <input type="text" id="verification-code" name="verification-code" required placeholder="أدخل رمز التحقق">
+            <br>
+            <button id="login-btn" onclick="login()">تسجيل دخول</button>
+        </div>
     </div>
 
-<!-- الحاوية -->
-<div class="container">
-    <!-- محتوى التاب الخاص بالمراجعات -->
-    <div id="reviews" class="tab-content" style="display: block;">
-        <h2>المراجعات</h2>
-        <div class="reviews">
-            <div class="review">
-                <div class="review-header">
-                    <span class="review-name">أحمد</span>
-                    <span class="review-stars">★★★</span>
-                    <span class="review-date">12-11-2024 13:26:33</span>
-                </div>
-                <div class="review-description">خدمة ممتازة وشغل نظيف تستحقون الشكر</div>
-                <div class="review-media"><a href="https://privpot/imag/23244355" target="_blank">عرض الصورة أو الفيديو</a></div>
-            </div>
+    <!-- صفحة التابات بعد تسجيل الدخول -->
+    <div id="menu" style="display: none;">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('reviews')">المراجعات</button> <!-- التاب الافتراضي مفتوح -->
+            <button class="tab" onclick="showTab('stats')">الإحصائيات</button>
+            <button class="tab" onclick="showTab('welcome-text')">إعداد نص الترحيب</button>
+            <button class="tab" onclick="showTab('thank-you-message')">إعداد رسالة الشكر</button>
+        </div>
 
-            <div class="review">
-                <div class="review-header">
-                    <span class="review-name">بدون إسم</span>
-                    <span class="review-stars">★★★★</span>
-                    <span class="review-date">12-11-2024 13:26:33</span>
-                </div>
-                <div class="review-description">لازم تحسنون من خدمتكم، سوف نزوركم في وقت لاحق</div>
-            </div>
-
-            <div class="review">
-                <div class="review-header">
-                    <span class="review-name">بدون إسم</span>
-                    <span class="review-stars">★★★★</span>
-                    <span class="review-date">13-11-2024 14:12:45</span>
-                </div>
-                <div class="review-description">خدمة سريعة وأجواء مريحة، سأعود مجددًا بالتأكيد!</div>
-            </div>
-
-            <div class="review">
-                <div class="review-header">
-                    <span class="review-name">سارة</span>
-                    <span class="review-stars">★★</span>
-                    <span class="review-date">13-11-2024 10:30:20</span>
-                </div>
-                <div class="review-description">التأخير كان طويلاً والخدمة أقل من المتوقع، لكن المكان نظيف.</div>
-                <div class="review-media"><a href="https://privpot/imag/54832342" target="_blank">عرض الصورة أو الفيديو</a></div>
-            </div>
-
-            <div class="review">
-                <div class="review-header">
-                    <span class="review-name">محمد</span>
-                    <span class="review-stars">★★★★★</span>
-                    <span class="review-date">12-11-2024 19:45:10</span>
-                </div>
-                <div class="review-description">أعجبني تعامل الموظفين والخدمة الممتازة، أتمنى لكم مزيداً من النجاح.</div>
-                <div class="review-media"><a href="https://privpot/imag/84321432" target="_blank">عرض الصورة أو الفيديو</a></div>
-            </div>
-
-            <div class="review">
-                <div class="review-header">
-                    <span class="review-name">ريم</span>
-                    <span class="review-stars">★</span>
-                    <span class="review-date">11-11-2024 16:50:33</span>
-                </div>
-                <div class="review-description">تجربة سيئة، الأسعار مبالغ فيها ولا يوجد تنوع في الخيارات.</div>
-            </div>
-
-            <div class="review">
-                <div class="review-header">
-                    <span class="review-name">فهد</span>
-                    <span class="review-stars">★★★</span>
-                    <span class="review-date">10-11-2024 11:15:55</span>
-                </div>
-                <div class="review-description">التجربة كانت جيدة لكن يمكن تحسين جودة الخدمة أكثر.</div>
-                <div class="review-media"><a href="https://privpot/imag/21233451" target="_blank">عرض الصورة أو الفيديو</a></div>
-            </div>
-
+        <!--  محتوى تاب المراجعات-->
+        <div id="reviews" class="tab-content" style="display: block;"> <!-- عرض التاب بشكل افتراضي -->
             <div class="review">
                 <div class="review-header">
                     <span class="review-name">نورا</span>
@@ -124,54 +77,48 @@
                     <span class="review-date">09-11-2024 08:23:21</span>
                 </div>
                 <div class="review-description">موقع ممتاز وسهولة الوصول، الأجواء مريحة والخدمة جيدة.</div>
+                <div class="review-media"><a href="https://privpot/imag/72341299" target="_blank">عرض الصورة أو الفيديو</a></div>
             </div>
-
             <div class="review">
                 <div class="review-header">
-                    <span class="review-name">عادل</span>
-                    <span class="review-stars">★★</span>
-                    <span class="review-date">08-11-2024 17:40:12</span>
-                </div>
-                <div class="review-description">التجربة كانت متوسطة، الكمية ليست كافية مقارنة بالسعر.</div>
-                <div class="review-media"><a href="https://privpot/imag/99234481" target="_blank">عرض الصورة أو الفيديو</a></div>
-            </div>
-
-            <div class="review">
-                <div class="review-header">
-                    <span class="review-name">هدى</span>
-                    <span class="review-stars">★★★★★</span>
-                    <span class="review-date">07-11-2024 14:35:40</span>
-                </div>
-                <div class="review-description">خدمة ممتازة والموظفون متعاونون، سأوصي بهذا المكان للأصدقاء.</div>
-                <div class="review-media"><a href="https://privpot/imag/13444232" target="_blank">عرض الصورة أو الفيديو</a></div>
-            </div>
-
-            <div class="review">
-                <div class="review-header">
-                    <span class="review-name">ماجد</span>
+                    <span class="review-name">أحمد</span>
                     <span class="review-stars">★★★</span>
-                    <span class="review-date">06-11-2024 09:55:50</span>
+                    <span class="review-date">08-11-2024 12:00:00</span>
                 </div>
-                <div class="review-description">الخدمة جيدة، لكن لا بد من تحسين جودة الأطباق المقدمة.</div>
-            </div>
-
-            <div class="review">
-                <div class="review-header">
-                    <span class="review-name">بدر</span>
-                    <span class="review-stars">★</span>
-                    <span class="review-date">05-11-2024 12:10:22</span>
-                </div>
-                <div class="review-description">الأسعار مرتفعة مقارنة بالمستوى المتوقع للخدمة، تجربة غير موفقة.</div>
+                <div class="review-description">الخدمة جيدة ولكن يحتاج الموقع بعض التحسينات.</div>
+                <div class="review-media"><a href="https://privpot/imag/82374593" target="_blank">عرض الصورة أو الفيديو</a></div>
             </div>
         </div>
+
+        <div id="stats" class="tab-content" style="display: none;">
+            <h3>الإحصائيات</h3>
+            <p>عرض الإحصائيات هنا.</p>
+        </div>
+
+        <div id="welcome-text" class="tab-content" style="display: none;">
+            <h3>إعداد نص الترحيب</h3>
+            <p>إعداد نص الترحيب هنا.</p>
+        </div>
+
+        <div id="thank-you-message" class="tab-content" style="display: none;">
+            <h3>إعداد رسالة الشكر</h3>
+            <p>إعداد رسالة الشكر هنا.</p>
+        </div>
     </div>
-</div>
-
-
-
-
 
     <script>
+        function sendVerificationCode() {
+            // إخفاء حقل البريد وعرض حقل رمز التحقق
+            document.getElementById('email-phone-container').style.display = 'none';
+            document.getElementById('verification-code-container').style.display = 'block';
+        }
+
+        function login() {
+            // إخفاء شاشة التحقق وعرض قائمة التابات
+            document.getElementById('verification-screen').style.display = 'none';
+            document.getElementById('menu').style.display = 'block';
+        }
+
         function showTab(tabName) {
             // إخفاء جميع التابات
             document.querySelectorAll('.tab-content').forEach(content => content.style.display = 'none');
@@ -184,5 +131,6 @@
             document.querySelector(`[onclick="showTab('${tabName}')"]`).classList.add('active');
         }
     </script>
+
 </body>
 </html>
