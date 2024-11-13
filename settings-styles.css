@@ -301,97 +301,269 @@ button:hover {
 }
 
 
-/* استعلام الوسائط للهواتف والشاشات الصغيرة */
-@media screen and (max-width: 768px) {
-    /* تعديل الهيدر */
-    .header {
-        flex-direction: column; /* وضع العناصر في عمود */
-        padding: 10px;
-    }
 
-    .left-header a, .right-header a {
-        margin-left: 10px;
-        font-size: 14px;
-    }
 
-    /* تعديل التابات */
+
+
+/* Reset الأنماط */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+
+/* التابات */
+.tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #f1f1f1;
+    border-left: 2px solid #4CAF50;
+    padding: 10px;
+    position: fixed;
+    top: 80px; 
+    right: 0; 
+    width: auto;
+}
+
+.tab {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    color: #333;
+    text-align: left; 
+    font-weight: bold;
+    margin: 5px 0; 
+    width: 100%; 
+}
+
+.tab.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.tab:hover {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.tab-content {
+    margin-left: 250px; 
+    padding: 20px;
+    background-color: #fff;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; 
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f8f8f8;
+    height: 100vh; 
+    overflow-y: auto; 
+}
+
+.review {
+    padding: 20px;
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 20px; 
+    border: 1px solid #e0e0e0; 
+}
+
+.review + .review {
+    border-top: 2px solid #e0e0e0; 
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.review-name {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
+
+.review-stars {
+    font-size: 16px;
+    color: #ff9800;
+}
+
+.review-date {
+    font-size: 14px;
+    color: #888;
+}
+
+.review-description {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.review-media a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.review-media a:hover {
+    text-decoration: underline;
+}
+
+/* تنسيق الحقول داخل شاشة التحقق */
+#email-phone-container, #verification-code-container {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.verification-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+.verification-screen h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 18px;
+    line-height: 1.4;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* Media Queries لتناسب شاشات الجوال */
+@media (max-width: 768px) {
     .tabs {
-        position: static;
-        width: 100%; /* جعل التابات تمتد عبر العرض الكامل */
-        border-left: none; /* إزالة الحد الجانبي */
-        padding: 10px 0;
-        flex-direction: row; /* جعل التابات في صف أفقي */
-        justify-content: space-evenly;
+        display: block; /* جعل التابات تظهر في الشاشات الصغيرة */
+        position: absolute; /* جعل التابات تظهر فوق المحتوى */
+        top: 80px; /* وضع التابات تحت الهيدر */
+        right: 10px; /* إضافة مسافة على اليمين */
+        background-color: #f1f1f1; 
+        border-radius: 5px; 
+        padding: 10px;
+        z-index: 1000;
     }
 
     .tab {
-        width: auto; /* عرض التاب حسب محتواه */
-        font-size: 16px;
-        padding: 8px 15px;
+        padding: 10px 15px; /* تقليل الحشو للتابات */
+        font-size: 16px; /* تقليل حجم الخط */
+        width: auto; /* جعل العرض يتناسب مع المحتوى */
     }
 
-    /* تعديل محتوى التاب */
     .tab-content {
-        margin-left: 0;
-        padding: 15px;
-        width: 100%;
+        margin-left: 0; /* إزالة المسافة الجانبية على الشاشات الصغيرة */
     }
 
-    /* تعديل شاشة التحقق */
-    .verification-screen h2 {
-        font-size: 16px;
-        max-width: 100%;
+    .reviews {
+        max-width: 100%; /* جعل المراجعات تأخذ العرض الكامل */
+        padding: 10px; /* تقليل المسافة الداخلية */
     }
 
-    /* تعديل الحقول */
+    .review {
+        padding: 15px; /* تقليل padding في المراجعات */
+    }
+
+    #email-phone-container, #verification-code-container {
+        max-width: 90%;
+    }
+
     input[type="text"], button {
-        width: 100%;
         font-size: 14px;
-    }
-
-    /* تعديل الهيدر الأيسر */
-    .left-header a {
-        font-size: 14px; /* تصغير الخط في الهيدر */
+        padding: 8px;
     }
 }
 
-/* استعلام الوسائط للأجهزة الصغيرة جدًا (شاشات أصغر من 480px) */
-@media screen and (max-width: 480px) {
+@media (max-width: 480px) {
+    .tabs {
+        padding: 5px; /* تقليل الحشو في التابات */
+    }
+
+    .tab {
+        font-size: 14px; /* تقليل حجم الخط */
+    }
+}
+
+
     .header {
-        padding: 8px;
+        display: flex !important;
+        flex-direction: row !important; /* جعل العناصر في صف */
+        justify-content: space-between !important; /* توزيع العناصر بشكل متوازن */
+        align-items: center !important; /* محاذاة العناصر عموديًا في المنتصف */
+        padding: 10px 5px !important; /* تقليل المسافة في الهيدر */
+    }
+
+    .left-header {
+        display: flex !important; /* استخدام Flexbox للعناصر في الجهة اليسرى */
+        align-items: center !important; /* محاذاة العناصر عموديًا في المنتصف */
+        justify-content: flex-start !important; /* محاذاة العناصر إلى اليسار */
     }
 
     .left-header a {
-        font-size: 12px;
+        font-size: 14px !important; /* تقليل حجم الخط للأيقونات */
+        margin-left: 10px !important; /* إضافة مسافة بين العناصر */
     }
 
     .right-header .logo {
-        width: 25px;  /* تصغير حجم الشعار */
-        height: 25px;
+        width: 25px !important; /* تصغير حجم اللوجو */
+        height: 25px !important;
     }
 
     .right-header .project-name {
-        font-size: 14px; /* تقليل حجم النص في اسم المشروع */
+        font-size: 16px !important; /* تقليل حجم النص */
+        margin-left: 10px !important; /* إضافة مسافة بين اللوجو والنص */
     }
 
-    .tabs {
-        flex-direction: column; /* وضع التابات في عمود */
-        align-items: center;
+    /* إخفاء النصوص داخل الروابط وإبقاء الأيقونات فقط */
+    .left-header a span {
+        display: none !important; /* إخفاء النص */
     }
-
-    .tab {
-        padding: 10px 20px;
-        width: 100%;
-        font-size: 16px;
-    }
-
-    .tab-content {
-        margin-left: 0;
-        padding: 15px;
-    }
-
-    .verification-screen h2 {
-        font-size: 14px;
-        padding: 0 15px;
-    }
-}
