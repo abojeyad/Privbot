@@ -8,7 +8,7 @@
 </head>
 <body>
 
-     <!-- الهيدر -->
+    <!-- الهيدر -->
     <header class="header">
         <!-- الجهة اليسرى -->
         <div class="left-header">
@@ -25,62 +25,163 @@
                 <span>anas@gmail.com</span>
             <a href="index.html" class="index-link">
                 <img src="images/home.png" alt="home" class="icon"> 
-                <span>الرئيسية</span>
+                <span>العودة للرئيسية</span>
             </a>
         </div>
         
         <!-- الجهة اليمنى -->
-		<div class="right-header">
-			<a href="index.html" class="home-link">
-				<span class="project-name">Privbot</span>
-				<img src="images/logo.png" alt="Logo" class="logo">
-			</a>
-		</div>
-    </header>
-    
-    <div class="container">
-        <h2 id="mainTitle">من هنا يمكن إدارة الصفحة الخاصة بك والإطلاع على الإحصائيات والتقييمات</h2>
-        <h2 id="verificationTitle" style="display: none;">أدخل رمز التحقق</h2>
-        
-        <form id="settingsForm" onsubmit="showVerificationFields(event)">
-            <div class="form-group">
-                <label for="userIdentifier">للدخول أدخل البريد الإلكتروني أو رقم الجوال:</label>
-                <input type="text" id="userIdentifier" name="userIdentifier" placeholder="example@email.com أو 0501234567" value="example@email.com">
-            </div>
-            
-            <button type="submit" id="continueBtn">إرسال رمز التحقق</button>
-        </form>
-        
-        <form id="verificationForm" style="display: none;">
-            <div class="verification-group">
-                <input type="text" maxlength="1" class="verification-input">
-                <input type="text" maxlength="1" class="verification-input">
-                <input type="text" maxlength="1" class="verification-input">
-                <input type="text" maxlength="1" class="verification-input">
-            </div>
-            
-            <button type="button" id="loginBtn" onclick="showStatsText()">دخول</button>
-        </form>
-        
-        <div id="statsText" style="display: none; text-align: center; margin-top: 50px; font-size: 20px;">
-            في هذه الصفحة يتم إنشاء إعدادت رسالة الترحيب التي تظهر في صفحة التقدييم وأيضا رسالة الشكر بعد التقييم بالإضافة الى ظهور العديد من الإحصائيات التي تخص التقييمات 
+        <div class="right-header">
+            <a href="index.html" class="home-link">
+                <span class="project-name">Privbot</span>
+                <img src="images/logo.png" alt="Logo" class="logo">
+            </a>
         </div>
+    </header>
+
+    <!-- التابات -->
+    <div class="tabs">
+        <button onclick="showTab('reviews')" class="tab active">المراجعات</button>
+        <button onclick="showTab('stats')" class="tab">الإحصائيات</button>
     </div>
 
-    <script>
-        function showVerificationFields(event) {
-            event.preventDefault();
-            
-            document.getElementById('settingsForm').style.display = 'none';
-            document.getElementById('mainTitle').style.display = 'none';
-            document.getElementById('verificationTitle').style.display = 'block';
-            document.getElementById('verificationForm').style.display = 'block';
-        }
+<!-- الحاوية -->
+<div class="container">
+    <!-- محتوى التاب الخاص بالمراجعات -->
+    <div id="reviews" class="tab-content" style="display: block;">
+        <h2>المراجعات</h2>
+        <div class="reviews">
+            <div class="review">
+                <div class="review-header">
+                    <span class="review-name">أحمد</span>
+                    <span class="review-stars">★★★</span>
+                    <span class="review-date">12-11-2024 13:26:33</span>
+                </div>
+                <div class="review-description">خدمة ممتازة وشغل نظيف تستحقون الشكر</div>
+                <div class="review-media"><a href="https://privpot/imag/23244355" target="_blank">عرض الصورة أو الفيديو</a></div>
+            </div>
 
-        function showStatsText() {
-            document.getElementById('verificationForm').style.display = 'none';
-            document.getElementById('verificationTitle').style.display = 'none';
-            document.getElementById('statsText').style.display = 'block';
+            <div class="review">
+                <div class="review-header">
+                    <span class="review-name">بدون إسم</span>
+                    <span class="review-stars">★★★★</span>
+                    <span class="review-date">12-11-2024 13:26:33</span>
+                </div>
+                <div class="review-description">لازم تحسنون من خدمتكم، سوف نزوركم في وقت لاحق</div>
+            </div>
+
+            <div class="review">
+                <div class="review-header">
+                    <span class="review-name">بدون إسم</span>
+                    <span class="review-stars">★★★★</span>
+                    <span class="review-date">13-11-2024 14:12:45</span>
+                </div>
+                <div class="review-description">خدمة سريعة وأجواء مريحة، سأعود مجددًا بالتأكيد!</div>
+            </div>
+
+            <div class="review">
+                <div class="review-header">
+                    <span class="review-name">سارة</span>
+                    <span class="review-stars">★★</span>
+                    <span class="review-date">13-11-2024 10:30:20</span>
+                </div>
+                <div class="review-description">التأخير كان طويلاً والخدمة أقل من المتوقع، لكن المكان نظيف.</div>
+                <div class="review-media"><a href="https://privpot/imag/54832342" target="_blank">عرض الصورة أو الفيديو</a></div>
+            </div>
+
+            <div class="review">
+                <div class="review-header">
+                    <span class="review-name">محمد</span>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">12-11-2024 19:45:10</span>
+                </div>
+                <div class="review-description">أعجبني تعامل الموظفين والخدمة الممتازة، أتمنى لكم مزيداً من النجاح.</div>
+                <div class="review-media"><a href="https://privpot/imag/84321432" target="_blank">عرض الصورة أو الفيديو</a></div>
+            </div>
+
+            <div class="review">
+                <div class="review-header">
+                    <span class="review-name">ريم</span>
+                    <span class="review-stars">★</span>
+                    <span class="review-date">11-11-2024 16:50:33</span>
+                </div>
+                <div class="review-description">تجربة سيئة، الأسعار مبالغ فيها ولا يوجد تنوع في الخيارات.</div>
+            </div>
+
+            <div class="review">
+                <div class="review-header">
+                    <span class="review-name">فهد</span>
+                    <span class="review-stars">★★★</span>
+                    <span class="review-date">10-11-2024 11:15:55</span>
+                </div>
+                <div class="review-description">التجربة كانت جيدة لكن يمكن تحسين جودة الخدمة أكثر.</div>
+                <div class="review-media"><a href="https://privpot/imag/21233451" target="_blank">عرض الصورة أو الفيديو</a></div>
+            </div>
+
+            <div class="review">
+                <div class="review-header">
+                    <span class="review-name">نورا</span>
+                    <span class="review-stars">★★★★</span>
+                    <span class="review-date">09-11-2024 08:23:21</span>
+                </div>
+                <div class="review-description">موقع ممتاز وسهولة الوصول، الأجواء مريحة والخدمة جيدة.</div>
+            </div>
+
+            <div class="review">
+                <div class="review-header">
+                    <span class="review-name">عادل</span>
+                    <span class="review-stars">★★</span>
+                    <span class="review-date">08-11-2024 17:40:12</span>
+                </div>
+                <div class="review-description">التجربة كانت متوسطة، الكمية ليست كافية مقارنة بالسعر.</div>
+                <div class="review-media"><a href="https://privpot/imag/99234481" target="_blank">عرض الصورة أو الفيديو</a></div>
+            </div>
+
+            <div class="review">
+                <div class="review-header">
+                    <span class="review-name">هدى</span>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">07-11-2024 14:35:40</span>
+                </div>
+                <div class="review-description">خدمة ممتازة والموظفون متعاونون، سأوصي بهذا المكان للأصدقاء.</div>
+                <div class="review-media"><a href="https://privpot/imag/13444232" target="_blank">عرض الصورة أو الفيديو</a></div>
+            </div>
+
+            <div class="review">
+                <div class="review-header">
+                    <span class="review-name">ماجد</span>
+                    <span class="review-stars">★★★</span>
+                    <span class="review-date">06-11-2024 09:55:50</span>
+                </div>
+                <div class="review-description">الخدمة جيدة، لكن لا بد من تحسين جودة الأطباق المقدمة.</div>
+            </div>
+
+            <div class="review">
+                <div class="review-header">
+                    <span class="review-name">بدر</span>
+                    <span class="review-stars">★</span>
+                    <span class="review-date">05-11-2024 12:10:22</span>
+                </div>
+                <div class="review-description">الأسعار مرتفعة مقارنة بالمستوى المتوقع للخدمة، تجربة غير موفقة.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    <script>
+        function showTab(tabName) {
+            // إخفاء جميع التابات
+            document.querySelectorAll('.tab-content').forEach(content => content.style.display = 'none');
+            
+            // عرض التاب المطلوب
+            document.getElementById(tabName).style.display = 'block';
+            
+            // تحديث الحالة النشطة للأزرار
+            document.querySelectorAll('.tab').forEach(button => button.classList.remove('active'));
+            document.querySelector(`[onclick="showTab('${tabName}')"]`).classList.add('active');
         }
     </script>
 </body>
