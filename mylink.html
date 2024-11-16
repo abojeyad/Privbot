@@ -4,121 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نموذج تقييم</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            direction: rtl;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .rating-container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .name-field, .paragraph-field {
-            margin-bottom: 20px;
-			margin-left: 20px; /* إضافة هامش من اليسار */
-            margin-right: 20px; /* إضافة هامش من اليمين */
-        }
-
-        input[type="text"], textarea {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .stars {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .star-container {
-            text-align: center;
-            display: inline-block;
-        }
-
-        .star {
-            font-size: 30px;
-            fill: gray;
-            cursor: pointer;
-        }
-
-        .star.selected {
-            fill: gold;
-        }
-
-        .star-container span {
-            display: block;
-            margin-top: 5px;
-            font-size: 20px;
-            color: gray;
-        }
-
-        .star-container span.selected {
-            color: gold;
-        }
-
-        textarea {
-            resize: vertical;
-            height: 100px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        .thank-you-message {
-            font-size: 20px;
-            color: #4CAF50;
-            font-weight: bold;
-        }
-		.coupon-code {
-        font-size: 18px; /* حجم الخط للكود */
-        font-weight: bold; /* جعل الكود عريض */
-        color: #fff; /* لون الخط أبيض */
-        background-color: #ff5722; /* لون الخلفية برتقالي */
-        padding: 5px 10px; /* المسافة حول الكود */
-        border-radius: 5px; /* حواف دائرية */
-        display: inline-block; /* جعله يظهر في نفس السطر */
-        margin-top: 10px; /* مسافة من النص العلوي */
-        text-transform: uppercase; /* تحويل النص إلى حروف كبيرة */
-    }
-    </style>
 </head>
 <body>
-
     <div class="rating-container">
         <h1>متجر السنبلة الخضراء</h1>
-        <p id="descriptionText">يرجى تقديم تقييمك حول خدمتنا من خلال اختيار عدد النجوم وكتابة تعليقك. شكراً لمساهمتك!</p>
+        <p id="descriptionText">يسعدنا ويشرفنا معرفة رأيك حول تجربتك الأخيرة معنا. ملاحظاتك تهمنا ونوليها اهتماماً بالغاً، حيث نسعى دائماً لتحسين خدماتنا بناءً على آرائكم القيمة.</p>
 
         <div id="formContent">
-            <!-- حقل الاسم -->
-            <div class="name-field">
-                <label for="name">الإسم:</label>
-                <input type="text" id="name" name="name" placeholder="أدخل اسمك">
-            </div>
-
             <!-- نجمات التقييم -->
             <div class="stars">
                 <div class="star-container">
@@ -153,15 +45,15 @@
             <button type="submit" id="submitBtn">إرسال التقييم</button>
         </div>
 
-			<!-- رسالة الشكر -->
-			<div id="thankYouMessage" class="thank-you-message" style="display:none;">
-				<p>
-					شكراً جزيلاً لتقييمك! نحن نقدر رأيك كثيرًا وسعداء بملاحظاتك. نود أن نؤكد لك أن جميع التعليقات تصلنا ونحن نقرأها بعناية كبيرة.<br>
-					نعدك بأننا سنعمل جاهدين على تحسين خدماتنا لتلبية توقعاتك وتقديم أفضل تجربة ممكنة.<br>
-					احصل على خصم 10% في عملية الشراء القادمة باستخدام الكود:<br>
-					<span class="coupon-code">TTR10</span>
-				</p>
-			</div>
+        <!-- رسالة الشكر -->
+        <div id="thankYouMessage" class="thank-you-message" style="display:none;">
+            <p>
+                شكراً جزيلاً لتقييمك! نحن نقدر رأيك كثيرًا وسعداء بملاحظاتك. نود أن نؤكد لك أن جميع التعليقات تصلنا ونحن نقرأها بعناية كبيرة.<br>
+                نعدك بأننا سنعمل جاهدين على تحسين خدماتنا لتلبية توقعاتك وتقديم أفضل تجربة ممكنة.<br>
+                احصل على خصم 10% في عملية الشراء القادمة باستخدام الكود:<br>
+                <span class="coupon-code">TTR10</span>
+            </p>
+        </div>
     </div>
 
     <script>
@@ -215,5 +107,104 @@
         });
     </script>
 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .rating-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .paragraph-field {
+            margin-bottom: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+            height: 100px;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .star-container {
+            text-align: center;
+            display: inline-block;
+        }
+
+        .star {
+            font-size: 30px;
+            fill: gray;
+            cursor: pointer;
+        }
+
+        .star.selected {
+            fill: gold;
+        }
+
+        .star-container span {
+            display: block;
+            margin-top: 5px;
+            font-size: 20px;
+            color: gray;
+        }
+
+        .star-container span.selected {
+            color: gold;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .thank-you-message {
+            font-size: 20px;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .coupon-code {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #ff5722;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+    </style>
 </body>
 </html>

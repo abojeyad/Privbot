@@ -426,6 +426,8 @@ button:hover {
     text-decoration: none;  /* إزالة التسطير (underline) */
 }
 
+
+
 body {
     background-image: url("images/background-image.jpg"); /* تأكد من مسار الصورة */
     background-size: cover; /* لضبط الصورة على كامل الصفحة */
@@ -440,6 +442,8 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* توزيع الأعمدة بشكل متساوي */
     gap: 20px; /* المسافة بين البطاقات */
     padding: 20px;
+	top:-100px
+	
 }
 
 .feature-card {
@@ -458,17 +462,14 @@ body {
 .feature-card p {
     font-size: 16px;
     color: #333;
-    line-height: 1.6;
+
 }
 
 
 
 
 #glow {
-    font-size: 24px;
-    font-weight: bold;
-    color: #444;
-    text-align: center;
+    width: 100%;
     animation: reversePulse 2s ease-in-out infinite;
 }
 
@@ -483,6 +484,7 @@ body {
         transform: scale(0.9);
     }
 }
+
 
 
 
@@ -563,6 +565,7 @@ body {
     /* تعديل حجم الخط في النصوص */
     .feature-card p {
         font-size: 14px !important; /* تصغير الخط */
+		
     }
 
     .feature-grid {
