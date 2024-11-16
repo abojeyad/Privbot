@@ -221,7 +221,7 @@ function openThankYouPopup() {
 				<button id="copyLinkButton">نسخ الرابط</button> <!-- زر نسخ الرابط -->
                 <button id="downloadQRCode">تنزيل صورة QR</button>
             </div>
-            <div class="link-container">
+            <div class="mystore-bot-container">
 			     <p>يمكنك متابعة جميع التقييمات وقراءة ملاحظات وآراء عملائك من خلال الدخول إلى البوت التالي: mystore.bot@ على تليجرام أو واتساب</p>
                 <span class="copy-link-icon" id="copyLinkIcon2"/span>
             </div>
@@ -239,14 +239,6 @@ function openThankYouPopup() {
 
     // نسخ الرابط الأول عند النقر على أيقونة "نسخ الرابط"
     document.getElementById("copyLinkIcon").addEventListener("click", function() {
-        const link = "https://demo-link.com"; // رابط ديمو
-        navigator.clipboard.writeText(link).then(() => {
-            alert("تم نسخ الرابط!");
-        });
-    });
-
-    // نسخ الرابط الثاني عند النقر على أيقونة "نسخ الرابط"
-    document.getElementById("copyLinkIcon2").addEventListener("click", function() {
         const link = "https://demo-link.com"; // رابط ديمو
         navigator.clipboard.writeText(link).then(() => {
             alert("تم نسخ الرابط!");
