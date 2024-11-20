@@ -1,173 +1,130 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privbot</title>
-	<link rel="icon" href="/images/favicon.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
+    <title>مشروعي</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<body>
 
     <!-- الهيدر -->
-    <header class="header">
-        <!-- الجهة اليسرى -->
-        <div class="left-header">
-            <a href="#" class="language-switch">
-                <img src="images/language-icon.png" alt="Language" class="icon"> 
-                <span>تغيير اللغة</span>
-            </a>
-            <a href="https://t.me/yourchannel" class="telegram-link">
-                <img src="images/telegram-icon.png" alt="Telegram" class="icon"> 
-                <span>تواصل معنا</span>
-            </a>
-            <a href="mailto:example@email.com" class="email-link">
-                <img src="images/email-icon.png" alt="Email" class="icon"> 
-                <span>anas@gmail.com</span>
-
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo">
+            <span>اسم المشروع</span>
         </div>
-        
-        <!-- الجهة اليمنى -->
-		<div class="right-header">
-			<a href="index.html" class="home-link">
-				<span class="project-name">Privbot</span>
-				<img src="images/logo.png" alt="Logo" class="logo">
-			</a>
-		</div>
-
+        <div class="buttons">
+            <button onclick="createAccount()">إنشاء حساب</button>
+            <button onclick="window.location.href='myaccount.html'">إدارة حسابي</button>
+        </div>
     </header>
-	
-	
-    <div class="container">
-        <div class="left-section">
-            <div class="registration-options">
-                <button id="renewSubscriptionBtn" class="option-btn">تجديد الاشتراك</button>
-                <button id="newRegistrationBtn" class="option-btn active">تسجيل جديد</button>
-            </div>
 
- <!-- نموذج تسجيل جديد -->
-<form id="registerForm">
-    <div class="form-group">
-        <label for="fullName">إسم المتجر:</label>
-        <input type="text" id="fullName" name="fullName" required placeholder="ادخل اسم المحل او المتجر" value="متجر الديمو" >
-    </div>
-    <div class="form-group">
-        <label for="phone">رقم الجوال:</label>
-        <input type="text" id="phone" name="phone" required placeholder="أدخل رقم الجوال" value="0501234567" >
-    </div>
-    <div class="form-group">
-        <label for="email">البريد الإلكتروني:</label>
-        <input type="email" id="email" name="email" required placeholder="أدخل البريد الإلكتروني" value="a@gmail.com" >
-    </div>
-    <!-- إضافة حقل كوبون الخصم -->
-<div class="form-group coupon-container">
-    <label for="coupon">كوبون الخصم:</label>
-    <input type="text" id="coupon" name="coupon" placeholder="أدخل كوبون الخصم" value="PR10" >
-    <button type="button" id="applyCouponBtn" class="apply-coupon-btn">تطبيق الخصم</button>
-</div>
-        <div class="form-group">
-                    <label>اختر الباقة المناسبة:</label>
-                    <div class="packages">
-                        <div class="package" id="monthlyPackage">
-                            <input type="radio" id="monthly" name="package" value="monthly" required>
-                            <label for="monthly">
-                                <div class="package-content">
-                                    <h3>الباقة الشهرية</h3>
-                                    <p class="price">9 ريال</p>
-                                </div>
-                            </label>
-                        </div>
-                        <div class="package" id="annualPackage">
-                            <input type="radio" id="annual" name="package" value="annual" required>
-                            <label for="annual">
-                                <div class="package-content">
-                                    <h3>الباقة السنوية
-                                        <span class="discount">خصم 40%</span>
-                                    </h3>
-                                    <p class="price">68 ريال </p>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" id="submitBtn">إتمام الاشتراك</button>
-            </form>
+<!-- نافذة إنشاء حساب -->
+<div id="popup" class="popup hidden">
+    <div class="popup-content">
+        <form>
+            <h3>إنشاء حساب</h3>
+            <label for="phone">رقم الجوال</label>
+            <input type="text" id="phone" placeholder="أدخل رقم الجوال">
 
-            <!-- نموذج تجديد الاشتراك -->
-            <form id="renewForm" style="display: none;">
-                <div class="form-group">
-                    <label for="renewEmailOrPhone">البريد الإلكتروني أو رقم الجوال:</label>
-                    <input type="text" id="renewEmailOrPhone" name="renewEmailOrPhone" required placeholder="أدخل البريد الإلكتروني أو رقم الجوال">
-                </div>
-				
-				    <!-- إضافة حقل كوبون الخصم -->
-<div class="form-group coupon-container">
-    <label for="coupon">كوبون الخصم:</label>
-    <input type="text" id="coupon" name="coupon" placeholder="أدخل كوبون الخصم" value="PR10" >
-    <button type="button" id="applyCouponBtn" class="apply-coupon-btn">تطبيق الخصم</button>
+            <label for="email">البريد الإلكتروني</label>
+            <input type="email" id="email" placeholder="أدخل البريد الإلكتروني">
+
+            <label for="store-name">اسم المتجر</label>
+            <input type="text" id="store-name" placeholder="أدخل اسم المتجر">
+
+            <label for="store-category">فئة المتجر</label>
+            <select id="store-category">
+                <option value="electronics">إلكترونيات</option>
+                <option value="fashion">أزياء</option>
+                <option value="groceries">بقالة</option>
+                <option value="other">أخرى</option>
+            </select>
+
+            <label for="country">البلد</label>
+            <select id="country">
+                <option value="saudi-arabia" selected>السعودية</option>
+                <option value="uae">الإمارات</option>
+                <option value="egypt">مصر</option>
+            </select>
+
+            <label for="city">المدينة</label>
+            <select id="city">
+                <option value="riyadh">الرياض</option>
+                <option value="jeddah">جدة</option>
+                <option value="dammam">الدمام</option>
+            </select>
+
+            <button type="button" onclick="submitForm()">إنشاء حساب</button>
+            <button type="button" onclick="closePopup('popup')">إغلاق</button>
+        </form>
+    </div>
 </div>
 
-                <div class="form-group">
-                    <label>اختر الباقة المناسبة:</label>
-                    <div class="packages">
-                        <div class="package" id="monthlyPackageRenew">
-                            <input type="radio" id="monthlyRenew" name="package" value="monthly" required>
-                            <label for="monthlyRenew">
-                                <div class="package-content">
-                                    <h3>الباقة الشهرية</h3>
-                                    <p class="price">9 ريال</p>
-                                </div>
-                            </label>
-                        </div>
-                        <div class="package" id="annualPackageRenew">
-                            <input type="radio" id="annualRenew" name="package" value="annual" required>
-                            <label for="annualRenew">
-								<div class="package-content">
-                                    <h3>الباقة السنوية
-                                        <span class="discount">خصم 20%</span>
-                                    </h3>
-                                    <p class="price">78 ريال </p>
-								</div>
+<!-- نافذة إدخال رمز التحقق -->
+<div id="verification-popup" class="popup hidden">
+    <div class="popup-content">
+        <h3>إدخال رمز التحقق</h3>
+        <p>يرجى إدخال رمز التحقق المرسل إلى بريدك الإلكتروني</p>
+        <form>
+            <label for="verification-code">رمز التحقق</label>
+            <input type="text" id="verification-code" placeholder="أدخل رمز التحقق">
 
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" id="renewSubmitBtn">تجديد الاشتراك</button>
-            </form>
+            <button type="button" onclick="completeVerification()">إتمام العملية</button>
+            <button type="button" onclick="closePopup('verification-popup')">إغلاق</button>
+        </form>
+    </div>
+</div>
+
+<!-- نافذة نجاح إنشاء الحساب -->
+<div id="success-popup" class="popup hidden">
+    <div class="popup-content">
+        <h3>تهانينا!</h3>
+        <p>لقد تم إنشاء حسابك بنجاح، تفضل بالدخول إلى حسابك لإضافة الفروع وإتمام عملية الإشتراك</p>
+        <button type="button" onclick="goToAccount()">الدخول إلى حسابي</button>
+    </div>
+</div>
+
+<main>
+    <div class="section">
+        <img id="glow" src="images/qr-code-example.svg" alt="QR Code Example">
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <p>بمجرد تسجيلك في موقعنا، ستحصل على صفحة خاصة بمتجرك تتيح لعملائك التواصل المباشر معك وتقديم ملاحظاتهم بشكل خاص.</p>
         </div>
+        <div class="feature-card">
+            <p>يتيح الموقع خاصية التقييم بالنجوم مع إمكانية إضافة ملاحظات مكتوبة أو إرسال صور وفيديوهات حول تجربة العميل.</p>
+        </div>
+        <div class="feature-card">
+            <p>يمكنك إعداد رسالة ترحيب مميزة للعملاء عند دخولهم الموقع، بالإضافة إلى رسائل شكر تلقائية بعد إتمام التقييم، مع إمكانية تضمين عروض أو خصومات تحفيزية لزيادة التفاعل.</p>
+        </div>
+        <div class="feature-card">
+            <p>استلم جميع آراء العملاء وملاحظاتهم بشكل مباشر عبر الواتساب أو التليجرام مما يمنحك نظرة فورية على تعليقاتهم لاتخاذ الخطوات المناسبة.</p>
+        </div>
+        <div class="feature-card">
+            <p>احصل على رابط خاص يتيح لك الوصول إلى تقارير مفصلة وإحصائيات شاملة حول تفاعل العملاء ومعدلات التقييم.</p>
+        </div>
+        <div class="feature-card">
+            <p>احصل على دعم فني شامل 24/7 يتيح لك المساعدة في إعداد النظام وحل أي مشكلات قد تواجهك.</p>
+        </div>
+    </div>
+</main>
 
-        <div class="right-section">
+<!-- الفوتر -->
+<footer>
+    <p>البريد الإلكتروني: support@example.com</p>
+    <p>هاتف الدعم الفني: +966 123 456 789</p>
+    <div class="social-icons">
+        <a href="#">فيسبوك</a>
+        <a href="#">تويتر</a>
+        <a href="#">إنستغرام</a>
+    </div>
+</footer>
 
-		<div class="section">
-			<img id="glow" src="images/qr-code-example.svg" >
-		</div>
-
- <div class="feature-grid">
-    <div class="feature-card">
-        <p>بمجرد تسجيلك في موقعنا، ستحصل على صفحة خاصة بمتجرك تتيح لعملائك التواصل المباشر معك وتقديم ملاحظاتهم بشكل خاص.</p>
-    </div>
-    <div class="feature-card">
-        <p>يتيح الموقع خاصية التقييم بالنجوم مع إمكانية إضافة ملاحظات مكتوبة أو إرسال صور وفيديوهات حول تجربة العميل.</p>
-    </div>
-    <div class="feature-card">
-        <p>يمكنك إعداد رسالة ترحيب مميزة للعملاء عند دخولهم الموقع، بالإضافة إلى رسائل شكر تلقائية بعد إكمال التقييم، مع إمكانية تضمين عروض أو خصومات تحفيزية لزيادة التفاعل.</p>
-    </div>
-    <div class="feature-card">
-        <p>استلم جميع آراء العملاء وملاحظاتهم بشكل مباشر عبر الواتساب أو التليجرام مما يمنحك نظرة فورية على تعليقاتهم لاتخاذ الخطوات المناسبة.</p>
-    </div>
-    <div class="feature-card">
-        <p>احصل على رابط خاص يتيح لك الوصول إلى تقارير مفصلة وإحصائيات شاملة حول تفاعل العملاء ومعدلات التقييم.</p>
-    </div>
-    <div class="feature-card">
-        <p>احصل على دعم فني شامل 24/7 يتيح لك المساعدة في إعداد النظام وحل أي مشكلات قد تواجهك.</p>
-    </div>
-</div>
-
-</div>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

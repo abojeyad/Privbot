@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة الدفع</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <div class="payment-container">
+        <h2>إتمام عملية الدفع</h2>
+        
+        <!-- نموذج الدفع -->
+        <form id="paymentForm">
+            <!-- حقل اختيار الباقة -->
+            <div class="form-group">
+                <label>اختر الباقة المناسبة:</label>
+                <div class="packages">
+                    <div class="package" id="monthlyPackage">
+                        <input type="radio" id="monthly" name="package" value="monthly" required>
+                        <label for="monthly">
+                            <div class="package-content">
+                                <h3>الباقة الشهرية</h3>
+                                <p class="price">9 ريال</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="package" id="annualPackage">
+                        <input type="radio" id="annual" name="package" value="annual" required>
+                        <label for="annual">
+                            <div class="package-content">
+                                <h3>الباقة السنوية <span class="discount">خصم 40%</span></h3>
+                                <p class="price">68 ريال</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- حقل كوبون الخصم -->
+			<div class="form-group coupon-container">
+				<label for="coupon">كوبون الخصم:</label>
+				<input type="text" id="coupon" name="coupon" placeholder="أدخل كوبون الخصم" value="PR10" >
+				<button type="button" id="applyCouponBtn" class="apply-coupon-btn">تطبيق الخصم</button>
+			</div>
+
+            <!-- حقل اختيار طريقة الدفع -->
+            <div class="form-group">
+                <label>اختر طريقة الدفع:</label>
+                <div class="payment-methods">
+                    <div class="payment-option">
+                        <input type="radio" id="visa" name="paymentMethod" value="visa" required>
+                        <label for="visa">فيزا</label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="paypal" name="paymentMethod" value="paypal" required>
+                        <label for="paypal">باي بال</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- زر إتمام الاشتراك -->
+            <button type="submit" id="submitBtn">إتمام الاشتراك</button>
+        </form>
+    </div>
+
+    <script src="payment.js"></script>
+</body>
+</html>
