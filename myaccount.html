@@ -20,30 +20,32 @@
             </div>
         </header>
 		
-<p>
-    الموقع الخاص بي هو 
-    <a href="mylink.html" target="_blank">https://privpot.com/mystor123</a>
-    <button type="button" class="copy-link-btn">نسخ الرابط</button>
-    <button type="button" class="qr-image-btn">صورة QR</button>
-</p>
+		<p id="mylinkContainer">
+			الموقع الخاص بي هو 
+			<a href="mylink.html" target="_blank">https://privpot.com/mystor123</a>
+			<button type="button" class="copy-link-btn">نسخ الرابط</button>
+			<button type="button" class="qr-image-btn">صورة QR</button>
+		</p>
 
 	
         <!-- الأزرار في الأعلى: إضافة فرع جديد وتجديد الاشتراك -->
         <div class="action-buttons">
             <button id="addBranchBtn" onclick="openAddBranchPopup()">إضافة فروع جديدة</button>
-            <button id="renewAllBtn" onclick="openPaymentPage()">تجديد اشتراك للكل</button> <!-- زر تجديد الاشتراك -->
+            <button id="renewAllBtn" onclick="openPaymentPage()">تجديد إشتراك لكل الفروع</button> <!-- زر تجديد الاشتراك -->
         </div>
 
         <!-- عرض الفروع -->
-        <div id="branchesContainer">
-            <!-- بطاقة الفرع الافتراضية -->
-            <div class="branchCard">
-                <p>الفرع الرئيسي <span class="status active">مفعل</span></p>
-                <p>انتهاء الإشتراك/ 31-12-2024</p>
-                <button onclick="openAddBranchPopup()">تعديل</button>
-                <button onclick="openPaymentPage()">تجديد اشتراك</button>
-            </div>
+<div id="branchesContainer">
+    <!-- بطاقة الفرع الافتراضية -->
+    <div class="branchCard">
+        <p>الفرع الرئيسي <span class="status active">مفعل</span></p>
+        <p>انتهاء الإشتراك/ 31-12-2024</p>
+        <div class="button-container">
+            <button onclick="openAddBranchPopup()">تعديل</button>
+            <button onclick="openPaymentPage()">تجديد اشتراك</button>
         </div>
+    </div>
+</div>
 
         <!-- الفوتر -->
         <footer>

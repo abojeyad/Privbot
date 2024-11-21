@@ -38,8 +38,8 @@ function addBranch() {
         const newBranchCard = document.createElement('div');
         newBranchCard.classList.add('branchCard');
         newBranchCard.innerHTML = `
-            <p>${branchName} <span class="status active">مفعل</span></p>
-            <p>انتهاء الاشتراك: 2024-12-31</p>
+            <p>${branchName} <span class="status disabled">معطل</span></p>
+            <p>انتهاء الاشتراك: غير معروف</p>
             <button onclick="openAddBranchPopup()">تعديل</button>
             <button onclick="openPaymentPage()">تجديد اشتراك</button>
         `;
