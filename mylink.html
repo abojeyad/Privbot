@@ -36,10 +36,16 @@
             </div>
 
             <!-- حقل كتابة الفقرة -->
-            <div class="paragraph-field">
-                <label for="feedback">رأيك يهمنا</label>
-                <textarea id="feedback" name="feedback" rows="4" placeholder="اكتب رأيك هنا"></textarea>
-            </div>
+			<div class="paragraph-field">
+				<label for="feedback">رأيك يهمنا</label>
+				<textarea id="feedback" name="feedback" rows="4" placeholder="اكتب رأيك هنا"></textarea>
+			</div>
+
+			<!-- الحقل العادي -->
+			<div class="textbox">
+				<label for="contact">وسيلة تواصل (اختياري)</label>
+				<input type="text" id="contact" name="contact" placeholder="أدخل وسيلة تواصل معك (اختياري)">
+			</div>
 
             <!-- زر إرسال -->
             <button type="submit" id="submitBtn">إرسال التقييم</button>
@@ -47,12 +53,18 @@
 
         <!-- رسالة الشكر -->
         <div id="thankYouMessage" class="thank-you-message" style="display:none;">
-            <p>
-                شكراً جزيلاً لتقييمك! نحن نقدر رأيك كثيرًا وسعداء بملاحظاتك. نود أن نؤكد لك أن جميع التعليقات تصلنا ونحن نقرأها بعناية كبيرة.<br>
-                نعدك بأننا سنعمل جاهدين على تحسين خدماتنا لتلبية توقعاتك وتقديم أفضل تجربة ممكنة.<br>
-                احصل على خصم 10% في عملية الشراء القادمة باستخدام الكود:<br>
-                <span class="coupon-code">TTR10</span>
-            </p>
+<p>
+    شكراً جزيلاً لتقييمك! نحن نقدر رأيك كثيرًا وسعداء بملاحظاتك.  
+    <br><br>
+    نود أن نؤكد لك أن جميع التعليقات تصلنا ونحن نقرأها بعناية كبيرة.  
+    <br><br>
+    <strong>نعدك بأننا سنعمل جاهدين على تحسين خدماتنا لتلبية توقعاتك وتقديم أفضل تجربة ممكنة.</strong>  
+    <br><br>
+    <span style="font-size: 18px;">احصل على خصم <strong>10%</strong> في عملية الشراء القادمة باستخدام الكود:</span>  
+    <br>
+    <span class="coupon-code" >TTR10</span>
+</p>
+
         </div>
     </div>
 
@@ -125,21 +137,39 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .paragraph-field {
-            margin-bottom: 20px;
-            margin-left: 20px;
-            margin-right: 20px;
-        }
+		.paragraph-field {
+			margin-bottom: 20px;
+			margin-left: 20px;
+			margin-right: 20px;
+		}
 
-        textarea {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            resize: vertical;
-            height: 100px;
-        }
+		textarea {
+			width: 100%;
+			padding: 10px;
+			font-size: 16px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			resize: vertical;
+			height: 100px;
+		}
+
+		/* إضافة تنسيق للحقل العادي */
+		.textbox input[type="text"] {
+			width: 100%;
+			padding: 10px;
+			font-size: 16px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			height: 40px; /* التحكم بارتفاع الحقل */
+			box-sizing: border-box; /* يضمن أن الحواف الداخلية تُحتسب ضمن العرض */
+		}
+
+		/* إضافة تنسيق للعنصر الرئيسي */
+		.textbox {
+			margin-bottom: 20px;
+			margin-left: 20px;
+			margin-right: 20px;
+		}
 
         .stars {
             display: flex;
