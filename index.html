@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code PDF Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .custom-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .custom-button:hover {
+            background-color: #0056b3;
+        }
+
+        .output {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .page {
+            width: 148mm;
+            height: 210mm;
+            border: 1px solid #000;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .qr-code {
+            width: 100mm; /* حجم كبير جدًا */
+            height: 100mm; /* حجم كبير جدًا */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-code img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        #loadingSpinner {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+        }
+
+        .count {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code PDF Generator</h1>
+        <div class="button-group">
+            <label for="qrInput" class="custom-button">Upload QR Codes</label>
+            <input type="file" id="qrInput" multiple accept="image/*">
+
+            <label for="backgroundInput" class="custom-button">Upload Design</label>
+            <input type="file" id="backgroundInput" accept="image/*">
+
+            <button class="custom-button" id="generateButton">Generate Pages</button>
+            <button class="custom-button" id="downloadPDFButton">Download as PDF</button>
+        </div>
+        <div class="count" id="qrCount">QR Codes Uploaded: 0</div>
+    </div>
+
+    <div id="loadingSpinner">Loading...</div>
+
+    <div class="output" id="output"></div>
+
+    <div class="button-group">
+        <button class="custom-button" id="prevButton" style="display: none;">Previous</button>
+        <button class="custom-button" id="nextButton" style="display: none;">Next</button>
+    </div>
+
+    <script>
+        const QRCodeApp = {
+            qrImages: [],
+            backgroundImage: "",
+            qrCountElement: document.getElementById("qrCount"),
+            loadingSpinner: document.getElementById("loadingSpinner"),
+            currentPage: 0,
+            pagesPerBatch: 10,
+
+            init: function () {
+                document.getElementById("qrInput").addEventListener("change", this.handleQRInput.bind(this));
+                document.getElementById("backgroundInput").addEventListener("change", this.handleBackgroundInput.bind(this));
+                document.getElementById("generateButton").addEventListener("click", this.generatePages.bind(this));
+                document.getElementById("downloadPDFButton").addEventListener("click", this.downloadPDF.bind(this));
+                document.getElementById("prevButton").addEventListener("click", this.prevPages.bind(this));
+                document.getElementById("nextButton").addEventListener("click", this.nextPages.bind(this));
+            },
+
+            handleQRInput: function (event) {
+                this.qrImages = [];
+                Array.from(event.target.files).forEach(file => {
+                    const reader = new FileReader();
+                    reader.onload = () => {
+                        this.qrImages.push(reader.result);
+                        this.updateQRCount();
+                    };
+                    reader.readAsDataURL(file);
+                });
+            },
+
+            handleBackgroundInput: function (event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = () => {
+                        this.backgroundImage = reader.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            },
+
+            updateQRCount: function () {
+                this.qrCountElement.textContent = `QR Codes Uploaded: ${this.qrImages.length}`;
+            },
+
+            generatePages: function () {
+                if (!this.qrImages.length || !this.backgroundImage) {
+                    alert("Please upload both QR codes and a background design.");
+                    return;
+                }
+
+                this.currentPage = 0;
+                this.displayPages();
+
+                document.getElementById("prevButton").style.display = "inline-block";
+                document.getElementById("nextButton").style.display = "inline-block";
+            },
+
+            displayPages: function () {
+                const output = document.getElementById("output");
+                output.innerHTML = "";
+
+                const start = this.currentPage * this.pagesPerBatch;
+                const end = Math.min(start + this.pagesPerBatch, this.qrImages.length);
+                
+                for (let i = start; i < end; i++) {
+                    const page = document.createElement("div");
+                    page.className = "page";
+                    page.style.backgroundImage = `url(${this.backgroundImage})`;
+
+                    const qrBox = document.createElement("div");
+                    qrBox.className = "qr-code";
+
+                    const img = document.createElement("img");
+                    img.src = this.qrImages[i];
+
+                    qrBox.appendChild(img);
+                    page.appendChild(qrBox);
+                    output.appendChild(page);
+                }
+
+                document.getElementById("prevButton").style.display = this.currentPage > 0 ? "inline-block" : "none";
+                document.getElementById("nextButton").style.display = this.currentPage < Math.floor(this.qrImages.length / this.pagesPerBatch) ? "inline-block" : "none";
+            },
+
+            downloadPDF: async function () {
+                if (!this.qrImages.length || !this.backgroundImage) {
+                    alert("Please upload both QR codes and a background design.");
+                    return;
+                }
+
+                this.showLoading();
+
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({
+                    orientation: "portrait",
+                    unit: "mm",
+                    format: [148, 210],
+                });
+
+                for (let i = 0; i < this.qrImages.length; i++) {
+                    if (i > 0) pdf.addPage();
+
+                    const background = await this.loadImage(this.backgroundImage);
+                    pdf.addImage(background, "JPEG", 0, 0, 148, 210);
+
+                    const qrCode = await this.loadImage(this.qrImages[i]);
+                    pdf.addImage(qrCode, "JPEG", 39, 55, 70, 70); // حجم كبير جدًا
+                }
+
+                pdf.save("QR_Codes.pdf");
+
+                this.hideLoading();
+            },
+
+            loadImage: function (src) {
+                return new Promise((resolve) => {
+                    const img = new Image();
+                    img.onload = () => resolve(img);
+                    img.src = src;
+                });
+            },
+
+            showLoading: function () {
+                this.loadingSpinner.style.display = "block";
+            },
+
+            hideLoading: function () {
+                this.loadingSpinner.style.display = "none";
+            }
+        };
+
+        QRCodeApp.init();
+    </script>
+</body>
+</html>
