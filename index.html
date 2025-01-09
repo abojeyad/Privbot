@@ -13,6 +13,7 @@
             flex-direction: column;
             align-items: center;
             gap: 20px;
+            background-color: #f8f9fa;
         }
 
         .container {
@@ -53,9 +54,9 @@
         }
 
         .page {
-            width: 148mm;
-            height: 210mm;
-            border: 1px solid #000;
+            width: 210mm;
+            height: 297mm;
+            border: 2px dashed #000; /* حدود الورقة */
             position: relative;
             display: flex;
             align-items: center;
@@ -63,11 +64,13 @@
             overflow: hidden;
             background-size: cover;
             background-position: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #fff; /* لون خلفية الورقة */
         }
 
         .qr-code {
-            width: 100mm; /* حجم كبير جدًا */
-            height: 100mm; /* حجم كبير جدًا */
+            width: 70mm;
+            height: 70mm;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -177,7 +180,6 @@
 
                 this.currentPage = 0;
                 this.displayPages();
-
                 document.getElementById("prevButton").style.display = "inline-block";
                 document.getElementById("nextButton").style.display = "inline-block";
             },
@@ -188,7 +190,7 @@
 
                 const start = this.currentPage * this.pagesPerBatch;
                 const end = Math.min(start + this.pagesPerBatch, this.qrImages.length);
-                
+
                 for (let i = start; i < end; i++) {
                     const page = document.createElement("div");
                     page.className = "page";
@@ -209,6 +211,20 @@
                 document.getElementById("nextButton").style.display = this.currentPage < Math.floor(this.qrImages.length / this.pagesPerBatch) ? "inline-block" : "none";
             },
 
+            prevPages: function () {
+                if (this.currentPage > 0) {
+                    this.currentPage--;
+                    this.displayPages();
+                }
+            },
+
+            nextPages: function () {
+                if ((this.currentPage + 1) * this.pagesPerBatch < this.qrImages.length) {
+                    this.currentPage++;
+                    this.displayPages();
+                }
+            },
+
             downloadPDF: async function () {
                 if (!this.qrImages.length || !this.backgroundImage) {
                     alert("Please upload both QR codes and a background design.");
@@ -221,17 +237,20 @@
                 const pdf = new jsPDF({
                     orientation: "portrait",
                     unit: "mm",
-                    format: [148, 210],
+                    format: [210, 297],
                 });
 
                 for (let i = 0; i < this.qrImages.length; i++) {
                     if (i > 0) pdf.addPage();
 
                     const background = await this.loadImage(this.backgroundImage);
-                    pdf.addImage(background, "JPEG", 0, 0, 148, 210);
+                    pdf.addImage(background, "JPEG", 0, 0, 210, 297);
 
                     const qrCode = await this.loadImage(this.qrImages[i]);
-                    pdf.addImage(qrCode, "JPEG", 39, 55, 70, 70); // حجم كبير جدًا
+                    const qrSize = 70;
+                    const centerX = (210 - qrSize) / 2;
+                    const centerY = (297 - qrSize) / 2;
+                    pdf.addImage(qrCode, "JPEG", centerX, centerY, qrSize, qrSize);
                 }
 
                 pdf.save("QR_Codes.pdf");
